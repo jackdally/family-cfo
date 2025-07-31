@@ -37,6 +37,13 @@ const sidebars: SidebarsConfig = {
         'development',
       ],
     },
+    {
+      type: 'category',
+      label: 'Development',
+      items: [
+        'development/feature-development',
+      ],
+    },
   ],
 };
 
