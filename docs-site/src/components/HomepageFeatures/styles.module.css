@@ -1,6 +1,7 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Homepage Features Component
+ * 
+ * Clean, minimal styling using design system tokens
  */
 
 .features {
@@ -16,16 +17,5 @@
 }
 
 .featureSvg path {
-  fill: var(--ifm-color-primary);
-}
-
-/* Ensure proper text contrast */
-.features h3 {
-  color: var(--ifm-color-content);
-  margin-bottom: 1rem;
-}
-
-.features p {
-  color: var(--ifm-color-content-secondary);
-  line-height: 1.6;
+  fill: var(--color-primary);
 }

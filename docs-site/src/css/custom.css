@@ -1,279 +1,263 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-focused websites.
+ * FamilyCFO Design System
+ * 
+ * Follows industry best practices:
+ * - CSS custom properties for theming
+ * - Semantic color naming
+ * - Minimal, focused overrides
+ * - Accessibility-first approach
  */
 
-/* You can override the default Infima variables here. */
+/* ===== DESIGN SYSTEM TOKENS ===== */
 :root {
-  --ifm-color-primary: #10b981; /* Jewel green */
-  --ifm-color-primary-dark: #059669;
-  --ifm-color-primary-darker: #047857;
-  --ifm-color-primary-darkest: #065f46;
-  --ifm-color-primary-light: #34d399;
-  --ifm-color-primary-lighter: #6ee7b7;
-  --ifm-color-primary-lightest: #a7f3d0;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Brand Colors */
+  --color-primary: #10b981;      /* Jewel green */
+  --color-primary-dark: #059669;
+  --color-primary-light: #34d399;
+  --color-negative: #b45309;     /* Copper */
   
-  /* Custom FamilyCFO colors */
-  --familycfo-jewel-green: #10b981;
-  --familycfo-copper: #b45309;
-  --familycfo-dark-bg: #0f172a;
-  --familycfo-card-bg: #1e293b;
-  --familycfo-border: #334155;
+  /* Neutral Colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
   
-  /* Light mode colors - ensure good contrast */
-  --ifm-background-color: #ffffff;
-  --ifm-background-surface-color: #f8fafc;
-  --ifm-color-emphasis-100: #f1f5f9;
-  --ifm-color-emphasis-200: #e2e8f0;
-  --ifm-color-emphasis-300: #cbd5e1;
-  --ifm-color-emphasis-400: #94a3b8;
-  --ifm-color-emphasis-500: #64748b;
-  --ifm-color-emphasis-600: #475569;
-  --ifm-color-emphasis-700: #334155;
-  --ifm-color-emphasis-800: #1e293b;
-  --ifm-color-emphasis-900: #0f172a;
+  /* Light Mode */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+}
+
+/* Dark Mode */
+[data-theme='dark'] {
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #334155;
+  --color-border: #475569;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #e2e8f0;
+  --color-text-muted: #cbd5e1;
+}
+
+/* ===== DOCKERUS THEME OVERRIDES ===== */
+:root {
+  /* Override Docusaurus defaults with our design system */
+  --ifm-color-primary: var(--color-primary);
+  --ifm-color-primary-dark: var(--color-primary-dark);
+  --ifm-color-primary-light: var(--color-primary-light);
   
-  /* Text colors for light mode */
-  --ifm-color-content: #1e293b;
-  --ifm-color-content-secondary: #475569;
-  --ifm-color-content-inverse: #ffffff;
+  /* Background colors */
+  --ifm-background-color: var(--color-bg-primary);
+  --ifm-background-surface-color: var(--color-bg-secondary);
+  
+  /* Text colors */
+  --ifm-color-content: var(--color-text-primary);
+  --ifm-color-content-secondary: var(--color-text-secondary);
   
   /* Link colors */
-  --ifm-link-color: #10b981;
-  --ifm-link-decoration: none;
+  --ifm-link-color: var(--color-primary);
   
-  /* Navbar colors */
-  --ifm-navbar-background-color: #ffffff;
-  --ifm-navbar-link-color: #475569;
-  --ifm-navbar-link-hover-color: #10b981;
+  /* Navbar */
+  --ifm-navbar-background-color: var(--color-bg-primary);
+  --ifm-navbar-link-color: var(--color-text-secondary);
+  --ifm-navbar-link-hover-color: var(--color-primary);
   
-  /* Footer colors */
-  --ifm-footer-background-color: #f8fafc;
-  --ifm-footer-color: #475569;
-  --ifm-footer-link-color: #10b981;
+  /* Footer */
+  --ifm-footer-background-color: var(--color-bg-secondary);
+  --ifm-footer-color: var(--color-text-secondary);
+  --ifm-footer-link-color: var(--color-primary);
+  
+  /* Sidebar */
+  --ifm-sidebar-background-color: var(--color-bg-secondary);
+  
+  /* Code blocks */
+  --ifm-code-background: var(--color-bg-tertiary);
+  --ifm-code-border-radius: 0.375rem;
+  
+  /* Borders */
+  --ifm-color-emphasis-200: var(--color-border);
+  --ifm-color-emphasis-300: var(--color-border);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #10b981; /* Keep jewel green in dark mode */
-  --ifm-color-primary-dark: #34d399;
-  --ifm-color-primary-darker: #6ee7b7;
-  --ifm-color-primary-darkest: #a7f3d0;
-  --ifm-color-primary-light: #059669;
-  --ifm-color-primary-lighter: #047857;
-  --ifm-color-primary-lightest: #065f46;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  
-  /* Dark mode background colors */
-  --ifm-background-color: var(--familycfo-dark-bg);
-  --ifm-background-surface-color: var(--familycfo-card-bg);
-  --ifm-color-emphasis-100: var(--familycfo-border);
-  --ifm-color-emphasis-200: var(--familycfo-border);
-  --ifm-color-emphasis-300: var(--familycfo-border);
-  --ifm-color-emphasis-400: #64748b;
-  --ifm-color-emphasis-500: #94a3b8;
-  --ifm-color-emphasis-600: #cbd5e1;
-  --ifm-color-emphasis-700: #e2e8f0;
-  --ifm-color-emphasis-800: #f1f5f9;
-  --ifm-color-emphasis-900: #f8fafc;
-  
-  /* Text colors for dark mode */
-  --ifm-color-content: #f8fafc;
-  --ifm-color-content-secondary: #cbd5e1;
-  --ifm-color-content-inverse: #0f172a;
-  
-  /* Link colors for dark mode */
-  --ifm-link-color: #34d399;
-  
-  /* Navbar colors for dark mode */
-  --ifm-navbar-background-color: var(--familycfo-card-bg);
-  --ifm-navbar-link-color: #e2e8f0;
-  --ifm-navbar-link-hover-color: #34d399;
-  
-  /* Footer colors for dark mode */
-  --ifm-footer-background-color: var(--familycfo-dark-bg);
-  --ifm-footer-color: #cbd5e1;
-  --ifm-footer-link-color: #34d399;
+/* ===== TYPOGRAPHY ===== */
+/* Ensure proper text contrast */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary);
+  font-weight: 600;
 }
 
-/* Custom FamilyCFO styling */
-.navbar {
-  background-color: var(--ifm-navbar-background-color);
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+h1 {
+  color: var(--color-primary);
 }
 
-.navbar__brand {
-  font-weight: 700;
-  font-size: 1.5rem;
+p {
+  color: var(--color-text-primary);
+  line-height: 1.6;
 }
 
-.navbar__title {
-  color: var(--familycfo-jewel-green);
-}
-
-.navbar__link {
-  color: var(--ifm-navbar-link-color);
+a {
+  color: var(--color-primary);
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.navbar__link:hover {
-  color: var(--ifm-navbar-link-hover-color);
+a:hover {
+  color: var(--color-primary-dark);
 }
 
-/* Hero section styling */
+/* ===== COMPONENTS ===== */
+/* Navbar */
+.navbar {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__title {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Hero section */
 .hero {
-  background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+  background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
   padding: 4rem 0;
 }
 
 .hero__title {
-  color: var(--familycfo-jewel-green);
+  color: var(--color-primary);
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .hero__subtitle {
-  color: var(--ifm-color-content-secondary);
+  color: var(--color-text-secondary);
   font-size: 1.25rem;
   margin-bottom: 2rem;
 }
 
-/* Card styling */
+/* Cards */
 .card {
-  background-color: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   transition: all 0.2s ease;
 }
 
 .card:hover {
-  border-color: var(--familycfo-jewel-green);
+  border-color: var(--color-primary);
   transform: translateY(-2px);
 }
 
-/* Button styling */
+/* Buttons */
 .button {
-  background-color: var(--familycfo-jewel-green);
+  background-color: var(--color-primary);
   border: none;
   border-radius: 0.375rem;
-  color: white;
+  color: var(--color-white);
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   transition: all 0.2s ease;
 }
 
 .button:hover {
-  background-color: #059669;
+  background-color: var(--color-primary-dark);
   transform: translateY(-1px);
 }
 
 .button--secondary {
   background-color: transparent;
-  border: 2px solid var(--familycfo-jewel-green);
-  color: var(--familycfo-jewel-green);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
 }
 
 .button--secondary:hover {
-  background-color: var(--familycfo-jewel-green);
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
-/* Table styling */
+/* Tables */
 table {
-  background-color: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
 th {
-  background-color: var(--ifm-color-emphasis-100);
-  color: var(--familycfo-jewel-green);
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-primary);
   font-weight: 600;
 }
 
 td, th {
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--color-border);
   padding: 0.75rem;
 }
 
-/* Code block styling */
+/* Code blocks */
 .prism-code {
-  background-color: var(--ifm-color-emphasis-100);
-  border: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
   border-radius: 0.5rem;
 }
 
-/* Sidebar styling */
+/* Sidebar */
 .theme-doc-sidebar-container {
-  background-color: var(--ifm-background-surface-color);
-  border-right: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--color-bg-secondary);
+  border-right: 1px solid var(--color-border);
 }
 
 .menu__link {
-  color: var(--ifm-color-content-secondary);
+  color: var(--color-text-secondary);
   transition: all 0.2s ease;
 }
 
 .menu__link:hover {
-  color: var(--familycfo-jewel-green);
+  color: var(--color-primary);
   background-color: rgba(16, 185, 129, 0.1);
 }
 
 .menu__link--active {
-  color: var(--familycfo-jewel-green);
+  color: var(--color-primary);
   background-color: rgba(16, 185, 129, 0.1);
 }
 
-/* Footer styling */
+/* Footer */
 .footer {
-  background-color: var(--ifm-footer-background-color);
-  border-top: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
 }
 
 .footer__title {
-  color: var(--familycfo-jewel-green);
+  color: var(--color-primary);
 }
 
 .footer__link-item {
-  color: var(--ifm-footer-color);
+  color: var(--color-text-secondary);
   transition: color 0.2s ease;
 }
 
 .footer__link-item:hover {
-  color: var(--ifm-footer-link-color);
+  color: var(--color-primary);
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--ifm-color-content);
-  font-weight: 600;
+/* ===== UTILITIES ===== */
+/* Text utilities */
+.text--center {
+  color: var(--color-text-primary);
 }
 
-h1 {
-  color: var(--familycfo-jewel-green);
+.text--center h3 {
+  color: var(--color-text-primary);
 }
 
-p {
-  color: var(--ifm-color-content);
-  line-height: 1.6;
+.text--center p {
+  color: var(--color-text-secondary);
 }
 
-/* Link styling */
-a {
-  color: var(--ifm-link-color);
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--ifm-color-primary-dark);
-}
-
-/* Alert styling */
+/* Alerts */
 .alert {
   border-radius: 0.5rem;
   border: 1px solid;
@@ -281,36 +265,36 @@ a:hover {
 
 .alert--info {
   background-color: rgba(16, 185, 129, 0.1);
-  border-color: var(--familycfo-jewel-green);
-  color: var(--ifm-color-content);
+  border-color: var(--color-primary);
+  color: var(--color-text-primary);
 }
 
 .alert--warning {
   background-color: rgba(180, 83, 9, 0.1);
-  border-color: var(--familycfo-copper);
-  color: var(--ifm-color-content);
+  border-color: var(--color-negative);
+  color: var(--color-text-primary);
 }
 
 .alert--danger {
   background-color: rgba(239, 68, 68, 0.1);
   border-color: #ef4444;
-  color: var(--ifm-color-content);
+  color: var(--color-text-primary);
 }
 
-/* Badge styling */
+/* Badges */
 .badge {
-  background-color: var(--familycfo-jewel-green);
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   font-weight: 600;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
 }
 
 .badge--secondary {
-  background-color: var(--familycfo-copper);
+  background-color: var(--color-negative);
 }
 
-/* Responsive design */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .hero__title {
     font-size: 2rem;
@@ -321,51 +305,22 @@ a:hover {
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* ===== ACCESSIBILITY ===== */
+/* Focus states */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--ifm-color-emphasis-100);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--ifm-color-emphasis-300);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--familycfo-jewel-green);
-}
-
-/* Additional contrast fixes for Docusaurus components */
-.text--center {
-  color: var(--ifm-color-content);
-}
-
-.text--center h3 {
-  color: var(--ifm-color-content);
-}
-
-.text--center p {
-  color: var(--ifm-color-content-secondary);
-}
-
-/* Ensure all text has proper contrast */
-* {
-  color: inherit;
-}
-
-/* Fix for any remaining light text on light backgrounds */
-[data-theme='light'] .text--center,
-[data-theme='light'] .text--center h3,
-[data-theme='light'] .text--center p {
-  color: var(--ifm-color-content);
-}
-
-[data-theme='dark'] .text--center,
-[data-theme='dark'] .text--center h3,
-[data-theme='dark'] .text--center p {
-  color: var(--ifm-color-content);
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
