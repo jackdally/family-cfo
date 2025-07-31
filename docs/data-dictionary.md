@@ -50,8 +50,8 @@ The application is built around the concept of **Scenarios** - different financi
 
 #### Relationships
 
-- **sentTransfers**: One-to-Many relationship with `AccountTransfer`
-- **receivedTransfers**: One-to-Many relationship with `AccountTransfer`
+- **sentTransfers**: from with `AccountTransfer`
+- **receivedTransfers**: to with `AccountTransfer`
 
 #### Indexes
 

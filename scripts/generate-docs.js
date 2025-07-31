@@ -22,52 +22,43 @@ The application is built around the concept of **Scenarios** - different financi
 
 `;
 
-    // Generate documentation for each model
+    // Generate markdown for each model
     for (const model of models) {
       md += `### ${model.name}\n\n`;
       
-      // Add model description if available
+      // Add model documentation if available
       if (model.documentation) {
         md += `${model.documentation}\n\n`;
       }
       
-      // Fields table
       md += `#### Fields\n\n`;
       md += `| Field | Type | Required | Description |\n`;
       md += `|-------|------|----------|-------------|\n`;
       
       for (const field of model.fields) {
-        const type = field.isList ? `${field.type}[]` : field.type;
         const required = field.isRequired ? 'Yes' : 'No';
         const description = field.documentation || '';
-        
-        md += `| \`${field.name}\` | \`${type}\` | ${required} | ${description} |\n`;
+        md += `| \`${field.name}\` | \`${field.type}${field.isList ? '[]' : ''}\` | ${required} | ${description} |\n`;
       }
       
       md += '\n';
       
-      // Relationships
-      const relations = model.fields.filter(f => f.relationName);
-      if (relations.length > 0) {
+      // Add relationships section if there are relations
+      const relationFields = model.fields.filter(f => f.relationName);
+      if (relationFields.length > 0) {
         md += `#### Relationships\n\n`;
-        for (const relation of relations) {
-          const relationType = relation.isList ? 'One-to-Many' : 'Many-to-One';
-          const targetModel = relation.type;
-          md += `- **${relation.name}**: ${relationType} relationship with \`${targetModel}\`\n`;
-          if (relation.relationFromFields && relation.relationFromFields.length > 0) {
-            md += `  - Foreign key: \`${relation.relationFromFields[0]}\` → \`${targetModel}.${relation.relationToFields[0]}\`\n`;
-          }
+        for (const field of relationFields) {
+          md += `- **${field.name}**: ${field.relationName || 'Relationship'} with \`${field.type}\`\n`;
         }
         md += '\n';
       }
       
-      // Indexes
-      if (model.indexes && model.indexes.length > 0) {
+      // Add indexes section if there are indexes
+      if (model.indexes.length > 0) {
         md += `#### Indexes\n\n`;
         for (const index of model.indexes) {
-          const fields = index.fields.join(', ');
-          const name = index.name ? ` (${index.name})` : '';
-          md += `- \`${fields}\`${name}\n`;
+          const indexName = index.name ? ` (${index.name})` : '';
+          md += `- \`${index.fields.join(', ')}\`${indexName}\n`;
         }
         md += '\n';
       }
