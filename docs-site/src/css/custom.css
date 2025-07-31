@@ -22,6 +22,38 @@
   --familycfo-dark-bg: #0f172a;
   --familycfo-card-bg: #1e293b;
   --familycfo-border: #334155;
+  
+  /* Light mode colors - ensure good contrast */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8fafc;
+  --ifm-color-emphasis-100: #f1f5f9;
+  --ifm-color-emphasis-200: #e2e8f0;
+  --ifm-color-emphasis-300: #cbd5e1;
+  --ifm-color-emphasis-400: #94a3b8;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-600: #475569;
+  --ifm-color-emphasis-700: #334155;
+  --ifm-color-emphasis-800: #1e293b;
+  --ifm-color-emphasis-900: #0f172a;
+  
+  /* Text colors for light mode */
+  --ifm-color-content: #1e293b;
+  --ifm-color-content-secondary: #475569;
+  --ifm-color-content-inverse: #ffffff;
+  
+  /* Link colors */
+  --ifm-link-color: #10b981;
+  --ifm-link-decoration: none;
+  
+  /* Navbar colors */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #475569;
+  --ifm-navbar-link-hover-color: #10b981;
+  
+  /* Footer colors */
+  --ifm-footer-background-color: #f8fafc;
+  --ifm-footer-color: #475569;
+  --ifm-footer-link-color: #10b981;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -41,12 +73,36 @@
   --ifm-color-emphasis-100: var(--familycfo-border);
   --ifm-color-emphasis-200: var(--familycfo-border);
   --ifm-color-emphasis-300: var(--familycfo-border);
+  --ifm-color-emphasis-400: #64748b;
+  --ifm-color-emphasis-500: #94a3b8;
+  --ifm-color-emphasis-600: #cbd5e1;
+  --ifm-color-emphasis-700: #e2e8f0;
+  --ifm-color-emphasis-800: #f1f5f9;
+  --ifm-color-emphasis-900: #f8fafc;
+  
+  /* Text colors for dark mode */
+  --ifm-color-content: #f8fafc;
+  --ifm-color-content-secondary: #cbd5e1;
+  --ifm-color-content-inverse: #0f172a;
+  
+  /* Link colors for dark mode */
+  --ifm-link-color: #34d399;
+  
+  /* Navbar colors for dark mode */
+  --ifm-navbar-background-color: var(--familycfo-card-bg);
+  --ifm-navbar-link-color: #e2e8f0;
+  --ifm-navbar-link-hover-color: #34d399;
+  
+  /* Footer colors for dark mode */
+  --ifm-footer-background-color: var(--familycfo-dark-bg);
+  --ifm-footer-color: #cbd5e1;
+  --ifm-footer-link-color: #34d399;
 }
 
 /* Custom FamilyCFO styling */
 .navbar {
-  background-color: var(--familycfo-card-bg);
-  border-bottom: 1px solid var(--familycfo-border);
+  background-color: var(--ifm-navbar-background-color);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .navbar__brand {
@@ -58,9 +114,18 @@
   color: var(--familycfo-jewel-green);
 }
 
+.navbar__link {
+  color: var(--ifm-navbar-link-color);
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
 /* Hero section styling */
 .hero {
-  background: linear-gradient(135deg, var(--familycfo-dark-bg) 0%, var(--familycfo-card-bg) 100%);
+  background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
   padding: 4rem 0;
 }
 
@@ -72,15 +137,15 @@
 }
 
 .hero__subtitle {
-  color: #e2e8f0;
+  color: var(--ifm-color-content-secondary);
   font-size: 1.25rem;
   margin-bottom: 2rem;
 }
 
 /* Card styling */
 .card {
-  background-color: var(--familycfo-card-bg);
-  border: 1px solid var(--familycfo-border);
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 0.5rem;
   transition: all 0.2s ease;
 }
@@ -119,38 +184,38 @@
 
 /* Table styling */
 table {
-  background-color: var(--familycfo-card-bg);
-  border: 1px solid var(--familycfo-border);
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
 th {
-  background-color: var(--familycfo-dark-bg);
+  background-color: var(--ifm-color-emphasis-100);
   color: var(--familycfo-jewel-green);
   font-weight: 600;
 }
 
 td, th {
-  border-bottom: 1px solid var(--familycfo-border);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
   padding: 0.75rem;
 }
 
 /* Code block styling */
 .prism-code {
-  background-color: var(--familycfo-dark-bg);
-  border: 1px solid var(--familycfo-border);
+  background-color: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 0.5rem;
 }
 
 /* Sidebar styling */
 .theme-doc-sidebar-container {
-  background-color: var(--familycfo-card-bg);
-  border-right: 1px solid var(--familycfo-border);
+  background-color: var(--ifm-background-surface-color);
+  border-right: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .menu__link {
-  color: #e2e8f0;
+  color: var(--ifm-color-content-secondary);
   transition: all 0.2s ease;
 }
 
@@ -166,8 +231,8 @@ td, th {
 
 /* Footer styling */
 .footer {
-  background-color: var(--familycfo-dark-bg);
-  border-top: 1px solid var(--familycfo-border);
+  background-color: var(--ifm-footer-background-color);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .footer__title {
@@ -175,17 +240,17 @@ td, th {
 }
 
 .footer__link-item {
-  color: #e2e8f0;
+  color: var(--ifm-footer-color);
   transition: color 0.2s ease;
 }
 
 .footer__link-item:hover {
-  color: var(--familycfo-jewel-green);
+  color: var(--ifm-footer-link-color);
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  color: #f8fafc;
+  color: var(--ifm-color-content);
   font-weight: 600;
 }
 
@@ -194,18 +259,18 @@ h1 {
 }
 
 p {
-  color: #e2e8f0;
+  color: var(--ifm-color-content);
   line-height: 1.6;
 }
 
 /* Link styling */
 a {
-  color: var(--familycfo-jewel-green);
+  color: var(--ifm-link-color);
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #34d399;
+  color: var(--ifm-color-primary-dark);
 }
 
 /* Alert styling */
@@ -217,19 +282,19 @@ a:hover {
 .alert--info {
   background-color: rgba(16, 185, 129, 0.1);
   border-color: var(--familycfo-jewel-green);
-  color: #e2e8f0;
+  color: var(--ifm-color-content);
 }
 
 .alert--warning {
   background-color: rgba(180, 83, 9, 0.1);
   border-color: var(--familycfo-copper);
-  color: #e2e8f0;
+  color: var(--ifm-color-content);
 }
 
 .alert--danger {
   background-color: rgba(239, 68, 68, 0.1);
   border-color: #ef4444;
-  color: #e2e8f0;
+  color: var(--ifm-color-content);
 }
 
 /* Badge styling */
@@ -262,14 +327,45 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--familycfo-dark-bg);
+  background: var(--ifm-color-emphasis-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--familycfo-border);
+  background: var(--ifm-color-emphasis-300);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--familycfo-jewel-green);
+}
+
+/* Additional contrast fixes for Docusaurus components */
+.text--center {
+  color: var(--ifm-color-content);
+}
+
+.text--center h3 {
+  color: var(--ifm-color-content);
+}
+
+.text--center p {
+  color: var(--ifm-color-content-secondary);
+}
+
+/* Ensure all text has proper contrast */
+* {
+  color: inherit;
+}
+
+/* Fix for any remaining light text on light backgrounds */
+[data-theme='light'] .text--center,
+[data-theme='light'] .text--center h3,
+[data-theme='light'] .text--center p {
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .text--center,
+[data-theme='dark'] .text--center h3,
+[data-theme='dark'] .text--center p {
+  color: var(--ifm-color-content);
 }

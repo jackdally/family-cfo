@@ -1,3 +1,8 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
 .features {
   display: flex;
   align-items: center;
@@ -8,4 +13,19 @@
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+.featureSvg path {
+  fill: var(--ifm-color-primary);
+}
+
+/* Ensure proper text contrast */
+.features h3 {
+  color: var(--ifm-color-content);
+  margin-bottom: 1rem;
+}
+
+.features p {
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.6;
 }

@@ -11,32 +11,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Liquidity Foresight',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Daily "days-of-cash" projections and buffer alerts keep you ahead of 
+        financial challenges. Never worry about overdrafts or missed payments again.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Scenario Agility',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Branch, clone, and diff any future—job loss, home purchase, sabbatical. 
+        Compare outcomes and make confident decisions with complete financial visibility.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Evidence-Based Discipline',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Rules engine enforces contribution cadence and investment discipline. 
+        Transform emotional decisions into systematic, wealth-building habits.
       </>
     ),
   },
