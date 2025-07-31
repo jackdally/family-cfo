@@ -16,6 +16,7 @@
   width: 200px;
 }
 
-.featureSvg path {
+/* Remove the fill override to preserve original SVG colors */
+/* .featureSvg path {
   fill: var(--color-primary);
-}
+} */

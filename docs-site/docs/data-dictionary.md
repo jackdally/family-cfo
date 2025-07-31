@@ -17,11 +17,11 @@ The application is built around the concept of **Scenarios** - different financi
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `id` | `String` | Yes |  |
-| `name` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `startDate` | `DateTime` | Yes |  |
-| `isPrimary` | `Boolean` | Yes |  |
-| `accounts` | `Account[]` | Yes |  |
+| `name` | `String` | Yes | Human-readable name for the scenario (e.g., "Baseline 2025", "Home Purchase 2029") |
+| `description` | `String` | No | Optional detailed description of the scenario |
+| `startDate` | `DateTime` | Yes | Start date for the scenario's financial planning period |
+| `isPrimary` | `Boolean` | Yes | Whether this is the primary scenario (only one per user) |
+| `accounts` | `Account[]` | Yes | Related entities |
 | `incomeEvents` | `IncomeEvent[]` | Yes |  |
 | `expenseEvents` | `ExpenseEvent[]` | Yes |  |
 | `accountTransfers` | `AccountTransfer[]` | Yes |  |
@@ -38,10 +38,10 @@ The application is built around the concept of **Scenarios** - different financi
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `id` | `String` | Yes |  |
-| `name` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
-| `owner` | `String` | Yes |  |
-| `isActive` | `Boolean` | Yes |  |
+| `name` | `String` | Yes | Human-readable account name (e.g., "Chase Checking", "Vanguard 401k") |
+| `type` | `String` | Yes | Account type (e.g., "checking", "savings", "investment", "loan") |
+| `owner` | `String` | Yes | Account owner (e.g., "John", "Jane", "Joint") |
+| `isActive` | `Boolean` | Yes | Whether the account is currently active |
 | `scenario` | `Scenario` | Yes |  |
 | `scenarioId` | `String` | Yes |  |
 | `balances` | `AccountBalance[]` | Yes |  |
@@ -66,9 +66,9 @@ The application is built around the concept of **Scenarios** - different financi
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `id` | `String` | Yes |  |
-| `date` | `DateTime` | Yes |  |
-| `value` | `Decimal` | Yes |  |
-| `isActual` | `Boolean` | Yes |  |
+| `date` | `DateTime` | Yes | Date of the balance snapshot |
+| `value` | `Decimal` | Yes | Account balance amount (positive for assets, negative for liabilities) |
+| `isActual` | `Boolean` | Yes | Whether this is an actual balance (true) or projected (false) |
 | `account` | `Account` | Yes |  |
 | `accountId` | `String` | Yes |  |
 | `scenario` | `Scenario` | Yes |  |
@@ -89,11 +89,11 @@ The application is built around the concept of **Scenarios** - different financi
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `id` | `String` | Yes |  |
-| `date` | `DateTime` | Yes |  |
-| `amount` | `Decimal` | Yes |  |
-| `isActual` | `Boolean` | Yes |  |
-| `owner` | `String` | Yes |  |
-| `label` | `String` | No |  |
+| `date` | `DateTime` | Yes | Date of the income event |
+| `amount` | `Decimal` | Yes | Income amount (positive) |
+| `isActual` | `Boolean` | Yes | Whether this is an actual income (true) or projected (false) |
+| `owner` | `String` | Yes | Income source owner (e.g., "John", "Jane") |
+| `label` | `String` | No | Income description (e.g., "Salary", "Bonus", "Dividends") |
 | `scenario` | `Scenario` | Yes |  |
 | `scenarioId` | `String` | Yes |  |
 
@@ -106,11 +106,11 @@ The application is built around the concept of **Scenarios** - different financi
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `id` | `String` | Yes |  |
-| `date` | `DateTime` | Yes |  |
-| `amount` | `Decimal` | Yes |  |
-| `isActual` | `Boolean` | Yes |  |
-| `category` | `String` | Yes |  |
-| `notes` | `String` | No |  |
+| `date` | `DateTime` | Yes | Date of the expense event |
+| `amount` | `Decimal` | Yes | Expense amount (positive) |
+| `isActual` | `Boolean` | Yes | Whether this is an actual expense (true) or projected (false) |
+| `category` | `String` | Yes | Expense category (e.g., "groceries", "entertainment", "utilities") |
+| `notes` | `String` | No | Optional notes about the expense |
 | `scenario` | `Scenario` | Yes |  |
 | `scenarioId` | `String` | Yes |  |
 
@@ -125,15 +125,20 @@ The application is built around the concept of **Scenarios** - different financi
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `id` | `String` | Yes |  |
-| `date` | `DateTime` | Yes |  |
-| `amount` | `Decimal` | Yes |  |
-| `isActual` | `Boolean` | Yes |  |
-| `fromAccount` | `Account` | Yes |  |
+| `date` | `DateTime` | Yes | Date of the transfer |
+| `amount` | `Decimal` | Yes | Transfer amount (positive) |
+| `isActual` | `Boolean` | Yes | Whether this is an actual transfer (true) or projected (false) |
+| `fromAccount` | `Account` | Yes | Source account |
 | `fromAccountId` | `String` | Yes |  |
-| `toAccount` | `Account` | Yes |  |
+| `toAccount` | `Account` | Yes | Destination account |
 | `toAccountId` | `String` | Yes |  |
 | `scenario` | `Scenario` | Yes |  |
 | `scenarioId` | `String` | Yes |  |
+
+#### Indexes
+
+- `fromAccountId, date`
+- `toAccountId, date`
 
 ---
 

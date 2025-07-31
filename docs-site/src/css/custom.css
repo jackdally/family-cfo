@@ -177,6 +177,11 @@ a:hover {
   color: var(--color-white);
 }
 
+/* Ensure button text is always readable in both themes */
+[data-theme='dark'] .button--secondary {
+  color: var(--color-primary-light);
+}
+
 /* Tables */
 table {
   background-color: var(--color-bg-secondary);

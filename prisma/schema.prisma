@@ -17,11 +17,16 @@ datasource db {
 // ─────────── Scenario (root context)
 model Scenario {
   id          String   @id @default(uuid())
+  // Human-readable name for the scenario (e.g., "Baseline 2025", "Home Purchase 2029")
   name        String
+  // Optional detailed description of the scenario
   description String?
+  // Start date for the scenario's financial planning period
   startDate   DateTime
+  // Whether this is the primary scenario (only one per user)
   isPrimary   Boolean  @default(false)
 
+  // Related entities
   accounts         Account[]
   incomeEvents     IncomeEvent[]
   expenseEvents    ExpenseEvent[]
@@ -32,9 +37,13 @@ model Scenario {
 // ─────────── Account + Balances
 model Account {
   id         String   @id @default(uuid())
+  // Human-readable account name (e.g., "Chase Checking", "Vanguard 401k")
   name       String
+  // Account type (e.g., "checking", "savings", "investment", "loan")
   type       String
+  // Account owner (e.g., "John", "Jane", "Joint")
   owner      String
+  // Whether the account is currently active
   isActive   Boolean  @default(true)
 
   scenario   Scenario  @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
@@ -49,8 +58,11 @@ model Account {
 
 model AccountBalance {
   id        String   @id @default(uuid())
+  // Date of the balance snapshot
   date      DateTime
+  // Account balance amount (positive for assets, negative for liabilities)
   value     Decimal
+  // Whether this is an actual balance (true) or projected (false)
   isActual  Boolean  @default(false)
 
   account    Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
@@ -65,10 +77,15 @@ model AccountBalance {
 // ─────────── Income & Expense events
 model IncomeEvent {
   id        String   @id @default(uuid())
+  // Date of the income event
   date      DateTime
+  // Income amount (positive)
   amount    Decimal
+  // Whether this is an actual income (true) or projected (false)
   isActual  Boolean  @default(false)
+  // Income source owner (e.g., "John", "Jane")
   owner     String
+  // Income description (e.g., "Salary", "Bonus", "Dividends")
   label     String?
 
   scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
@@ -79,10 +96,15 @@ model IncomeEvent {
 
 model ExpenseEvent {
   id        String   @id @default(uuid())
+  // Date of the expense event
   date      DateTime
+  // Expense amount (positive)
   amount    Decimal
+  // Whether this is an actual expense (true) or projected (false)
   isActual  Boolean  @default(false)
+  // Expense category (e.g., "groceries", "entertainment", "utilities")
   category  String
+  // Optional notes about the expense
   notes     String?
 
   scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
@@ -94,17 +116,24 @@ model ExpenseEvent {
 // ─────────── Internal transfers
 model AccountTransfer {
   id        String   @id @default(uuid())
+  // Date of the transfer
   date      DateTime
+  // Transfer amount (positive)
   amount    Decimal
+  // Whether this is an actual transfer (true) or projected (false)
   isActual  Boolean  @default(false)
 
-  fromAccount   Account @relation("from", fields: [fromAccountId], references: [id], onDelete: Cascade)
-  fromAccountId String
-  toAccount     Account @relation("to",   fields: [toAccountId],   references: [id], onDelete: Cascade)
-  toAccountId   String
+  // Source account
+  fromAccount    Account @relation("from", fields: [fromAccountId], references: [id], onDelete: Cascade)
+  fromAccountId  String
+
+  // Destination account
+  toAccount      Account @relation("to", fields: [toAccountId], references: [id], onDelete: Cascade)
+  toAccountId    String
 
   scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
   scenarioId String
 
-  @@index([date])
+  @@index([fromAccountId, date])
+  @@index([toAccountId, date])
 }
