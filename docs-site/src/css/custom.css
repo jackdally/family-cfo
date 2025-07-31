@@ -1,0 +1,275 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-focused websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #10b981; /* Jewel green */
+  --ifm-color-primary-dark: #059669;
+  --ifm-color-primary-darker: #047857;
+  --ifm-color-primary-darkest: #065f46;
+  --ifm-color-primary-light: #34d399;
+  --ifm-color-primary-lighter: #6ee7b7;
+  --ifm-color-primary-lightest: #a7f3d0;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Custom FamilyCFO colors */
+  --familycfo-jewel-green: #10b981;
+  --familycfo-copper: #b45309;
+  --familycfo-dark-bg: #0f172a;
+  --familycfo-card-bg: #1e293b;
+  --familycfo-border: #334155;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #10b981; /* Keep jewel green in dark mode */
+  --ifm-color-primary-dark: #34d399;
+  --ifm-color-primary-darker: #6ee7b7;
+  --ifm-color-primary-darkest: #a7f3d0;
+  --ifm-color-primary-light: #059669;
+  --ifm-color-primary-lighter: #047857;
+  --ifm-color-primary-lightest: #065f46;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Dark mode background colors */
+  --ifm-background-color: var(--familycfo-dark-bg);
+  --ifm-background-surface-color: var(--familycfo-card-bg);
+  --ifm-color-emphasis-100: var(--familycfo-border);
+  --ifm-color-emphasis-200: var(--familycfo-border);
+  --ifm-color-emphasis-300: var(--familycfo-border);
+}
+
+/* Custom FamilyCFO styling */
+.navbar {
+  background-color: var(--familycfo-card-bg);
+  border-bottom: 1px solid var(--familycfo-border);
+}
+
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar__title {
+  color: var(--familycfo-jewel-green);
+}
+
+/* Hero section styling */
+.hero {
+  background: linear-gradient(135deg, var(--familycfo-dark-bg) 0%, var(--familycfo-card-bg) 100%);
+  padding: 4rem 0;
+}
+
+.hero__title {
+  color: var(--familycfo-jewel-green);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+  color: #e2e8f0;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Card styling */
+.card {
+  background-color: var(--familycfo-card-bg);
+  border: 1px solid var(--familycfo-border);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--familycfo-jewel-green);
+  transform: translateY(-2px);
+}
+
+/* Button styling */
+.button {
+  background-color: var(--familycfo-jewel-green);
+  border: none;
+  border-radius: 0.375rem;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+}
+
+.button--secondary {
+  background-color: transparent;
+  border: 2px solid var(--familycfo-jewel-green);
+  color: var(--familycfo-jewel-green);
+}
+
+.button--secondary:hover {
+  background-color: var(--familycfo-jewel-green);
+  color: white;
+}
+
+/* Table styling */
+table {
+  background-color: var(--familycfo-card-bg);
+  border: 1px solid var(--familycfo-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+th {
+  background-color: var(--familycfo-dark-bg);
+  color: var(--familycfo-jewel-green);
+  font-weight: 600;
+}
+
+td, th {
+  border-bottom: 1px solid var(--familycfo-border);
+  padding: 0.75rem;
+}
+
+/* Code block styling */
+.prism-code {
+  background-color: var(--familycfo-dark-bg);
+  border: 1px solid var(--familycfo-border);
+  border-radius: 0.5rem;
+}
+
+/* Sidebar styling */
+.theme-doc-sidebar-container {
+  background-color: var(--familycfo-card-bg);
+  border-right: 1px solid var(--familycfo-border);
+}
+
+.menu__link {
+  color: #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.menu__link:hover {
+  color: var(--familycfo-jewel-green);
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.menu__link--active {
+  color: var(--familycfo-jewel-green);
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Footer styling */
+.footer {
+  background-color: var(--familycfo-dark-bg);
+  border-top: 1px solid var(--familycfo-border);
+}
+
+.footer__title {
+  color: var(--familycfo-jewel-green);
+}
+
+.footer__link-item {
+  color: #e2e8f0;
+  transition: color 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--familycfo-jewel-green);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+h1 {
+  color: var(--familycfo-jewel-green);
+}
+
+p {
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+/* Link styling */
+a {
+  color: var(--familycfo-jewel-green);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #34d399;
+}
+
+/* Alert styling */
+.alert {
+  border-radius: 0.5rem;
+  border: 1px solid;
+}
+
+.alert--info {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: var(--familycfo-jewel-green);
+  color: #e2e8f0;
+}
+
+.alert--warning {
+  background-color: rgba(180, 83, 9, 0.1);
+  border-color: var(--familycfo-copper);
+  color: #e2e8f0;
+}
+
+.alert--danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #e2e8f0;
+}
+
+/* Badge styling */
+.badge {
+  background-color: var(--familycfo-jewel-green);
+  color: white;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.badge--secondary {
+  background-color: var(--familycfo-copper);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--familycfo-dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--familycfo-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--familycfo-jewel-green);
+}

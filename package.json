@@ -2,7 +2,10 @@
 	"type": "module",
 	"scripts": {
 		"generate:docs": "node scripts/generate-docs.js",
-		"generate:all": "pnpm exec prisma generate && pnpm run generate:docs"
+		"generate:all": "pnpm exec prisma generate && pnpm run generate:docs",
+		"docs:dev": "cd docs-site && pnpm start",
+		"docs:build": "cd docs-site && pnpm build",
+		"docs:serve": "cd docs-site && pnpm serve"
 	},
 	"devDependencies": {
 		"@prisma/internals": "^6.13.0",
