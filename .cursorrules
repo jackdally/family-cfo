@@ -1,0 +1,73 @@
+# FamilyCFO Project Rules & Guidelines
+
+## 🎯 Project Overview
+FamilyCFO is a luxury-grade, CFO-level personal finance platform that treats a household like a boutique family office. The platform provides month-by-month forecasting, liquidity intelligence, scenario planning, and long-term wealth optimization.
+
+## 📚 ALWAYS FOLLOW These Documentation Files
+- **`/docs/project-overview.md`** - Vision, architecture, design system, and value proposition
+- **`/docs/development.md`** - Complete coding standards, workflow, and best practices
+- **`/docs/roadmap.md`** - Current phase priorities and implementation details
+- **`/docs/api.md`** - GraphQL patterns, authentication, and API guidelines
+- **`/docs/data-dictionary.md`** - Database schema and relationships
+
+## 🏗️ Tech Stack (Quick Reference)
+- **DB**: PostgreSQL 15 (relational + JSONB + RLS)
+- **ORM**: Prisma (type-safe TS client, migrations)
+- **API**: Hasura GraphQL (zero-boilerplate CRUD & subscriptions)
+- **Backend**: Next.js API routes | Python micro-svcs (JS for dev, Py for math optimization)
+- **Frontend**: Next.js 14 (App Router) + Tailwind + shadcn/ui
+- **Auth**: Supabase Auth (magic-link + OAuth)
+- **DevOps**: Docker Compose (local) → Vercel (+ managed PG) → GitHub Actions CI
+- **Docs**: Markdown in /docs, ERD via prisma-erd-generator
+
+## 🎯 Current Phase: Phase 0 Bootstrap
+Focus on infrastructure and development environment setup. See `/docs/roadmap.md` for detailed phase information.
+
+## 🔧 Key Commands (Always Use)
+```bash
+# Generate all documentation
+pnpm run generate:all
+
+# Generate just data dictionary
+pnpm run generate:docs
+
+# Start development environment
+docker compose up -d db hasura
+pnpm exec prisma generate
+pnpm --filter web dev
+
+# Database operations
+pnpm exec prisma migrate dev
+pnpm exec prisma migrate deploy
+pnpm exec prisma generate
+```
+
+## 🚫 Critical Rules (Never Break)
+- **Dual-ledger model**: Every event can be "Projected" or "Actual"
+- **UUIDs**: All IDs are UUID strings
+- **Cascade deletes**: All child FKs include onDelete: Cascade
+- **Money precision**: Store as numeric(18,2) (two-decimals)
+- **UTC timestamps**: All timestamps in UTC; UI localizes to user's TZ
+- **Data integrity**: isActual = true rows are immutable after entry
+- **Type safety**: Never use `any` types in TypeScript
+- **Field selection**: Don't select all fields in GraphQL queries
+- **Documentation**: Update docs when adding new features
+
+## 🛠️ Git Workflow
+- **PRs → develop**: Feature branches merge into develop
+- **Merges → main**: develop merges into main for releases
+- **Commit format**: `<type>[optional scope]: <description>` (feat:, fix:, docs:, etc.)
+- **Branch naming**: `feature/feature-name`, `fix/bug-description`, `docs/update`
+
+## 📁 Project Structure
+```
+family-cfo/
+├── docs/                    # Documentation
+├── prisma/                 # Database schema and migrations
+├── scripts/                # Build and utility scripts
+├── web/                    # Next.js frontend application
+├── docker-compose.yml      # Local development services
+└── package.json           # Project dependencies and scripts
+```
+
+**For complete guidelines, see `/docs/development.md`** 
