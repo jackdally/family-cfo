@@ -41,6 +41,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Development',
       items: [
+        'development/current-status',
         'development/feature-development',
       ],
     },
