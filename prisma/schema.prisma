@@ -1,0 +1,110 @@
+// prisma/schema.prisma  — Core v0
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../docs/erd.svg"   // writes to repo-root/docs
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────── Scenario (root context)
+model Scenario {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  startDate   DateTime
+  isPrimary   Boolean  @default(false)
+
+  accounts         Account[]
+  incomeEvents     IncomeEvent[]
+  expenseEvents    ExpenseEvent[]
+  accountTransfers AccountTransfer[]
+  accountBalances  AccountBalance[]
+}
+
+// ─────────── Account + Balances
+model Account {
+  id         String   @id @default(uuid())
+  name       String
+  type       String
+  owner      String
+  isActive   Boolean  @default(true)
+
+  scenario   Scenario  @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  scenarioId String
+
+  balances          AccountBalance[]
+  sentTransfers     AccountTransfer[] @relation("from")
+  receivedTransfers AccountTransfer[] @relation("to")
+
+  @@index([scenarioId, type])
+}
+
+model AccountBalance {
+  id        String   @id @default(uuid())
+  date      DateTime
+  value     Decimal
+  isActual  Boolean  @default(false)
+
+  account    Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId  String
+
+  scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  scenarioId String
+
+  @@index([accountId, date])
+}
+
+// ─────────── Income & Expense events
+model IncomeEvent {
+  id        String   @id @default(uuid())
+  date      DateTime
+  amount    Decimal
+  isActual  Boolean  @default(false)
+  owner     String
+  label     String?
+
+  scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  scenarioId String
+
+  @@index([date])
+}
+
+model ExpenseEvent {
+  id        String   @id @default(uuid())
+  date      DateTime
+  amount    Decimal
+  isActual  Boolean  @default(false)
+  category  String
+  notes     String?
+
+  scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  scenarioId String
+
+  @@index([date])
+}
+
+// ─────────── Internal transfers
+model AccountTransfer {
+  id        String   @id @default(uuid())
+  date      DateTime
+  amount    Decimal
+  isActual  Boolean  @default(false)
+
+  fromAccount   Account @relation("from", fields: [fromAccountId], references: [id], onDelete: Cascade)
+  fromAccountId String
+  toAccount     Account @relation("to",   fields: [toAccountId],   references: [id], onDelete: Cascade)
+  toAccountId   String
+
+  scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  scenarioId String
+
+  @@index([date])
+}
