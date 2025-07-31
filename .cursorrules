@@ -42,8 +42,9 @@ pnpm exec prisma migrate deploy
 pnpm exec prisma generate
 
 # Documentation site
-pnpm run docs:dev    # Start Docusaurus dev server
-pnpm run docs:build  # Build for production
+pnpm run docs:sync   # Sync docs/ → docs-site/docs/
+pnpm run docs:dev    # Sync + start Docusaurus dev server
+pnpm run docs:build  # Sync + build for production
 pnpm run docs:serve  # Serve built site
 ```
 
