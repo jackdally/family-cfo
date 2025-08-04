@@ -10,6 +10,18 @@ This guide outlines our approach to feature development, task tracking, and docu
 
 ## 📋 Task Tracking Strategy
 
+### Git Workflow
+
+We follow a **Git Flow** branching strategy:
+
+- **`main`** - Production-ready code (stable releases)
+- **`develop`** - Integration branch for features (pre-release)  
+- **`feature/*`** - Individual feature branches
+
+**Workflow**: Feature branches → develop → main
+
+For detailed Git workflow instructions, see [Development Guide](../development.md#git-workflow).
+
 ### GitHub Issues + Projects
 
 We use GitHub Issues for task tracking with the following structure:
@@ -86,6 +98,10 @@ Each development phase gets its own project board with columns:
    git pull origin develop
    git checkout -b feature/issue-number-description
    ```
+   
+   **Branch Naming**: Use `feature/issue-number-description` format
+   - Example: `feature/1-docker-environment`
+   - Example: `feature/3-nextjs-structure`
 
 2. **Update Issue Status** to "In Progress"
 

@@ -73,27 +73,106 @@ family-cfo/
 
 ### Git Workflow
 
-1. **Create a feature branch**
+We follow a **Git Flow** branching strategy with three main branches:
+
+- **`main`** - Production-ready code (stable releases)
+- **`develop`** - Integration branch for features (pre-release)
+- **`feature/*`** - Individual feature branches
+
+#### Branch Strategy
+
+```
+main (production)
+  ↑
+develop (integration)
+  ↑
+feature/issue-1-docker-env
+feature/issue-3-nextjs-structure
+feature/issue-2-hasura-config
+```
+
+#### Workflow Steps
+
+1. **Start from develop**
    ```bash
-   git checkout -b feature/your-feature-name
+   git checkout develop
+   git pull origin develop
    ```
 
-2. **Make your changes**
+2. **Create feature branch**
+   ```bash
+   git checkout -b feature/issue-number-description
+   # Example: git checkout -b feature/1-docker-environment
+   ```
+
+3. **Make your changes**
    - Follow the coding standards below
    - Write tests for new functionality
    - Update documentation as needed
+   - Keep commits atomic and focused
 
-3. **Commit your changes**
+4. **Commit your changes**
    ```bash
    git add .
    git commit -m "feat: add your feature description"
    ```
 
-4. **Push and create a PR**
+5. **Push feature branch**
    ```bash
-   git push origin feature/your-feature-name
-   # Create PR on GitHub
+   git push origin feature/issue-number-description
    ```
+
+6. **Create Pull Request**
+   - Target: `develop` branch
+   - Link issue in PR description
+   - Request code review
+   - Address feedback and update PR
+
+7. **Merge to develop**
+   - After approval, merge PR to `develop`
+   - Delete feature branch
+   - Update issue status to "Done"
+
+8. **Release to main**
+   - When ready for production release
+   - Create PR from `develop` to `main`
+   - Tag release version
+   - Deploy to production
+
+#### Branch Naming Convention
+
+- **Feature branches**: `feature/issue-number-description`
+  - Example: `feature/1-docker-environment`
+  - Example: `feature/3-nextjs-structure`
+
+- **Bug fixes**: `fix/issue-number-description`
+  - Example: `fix/15-account-balance-calculation`
+
+- **Documentation**: `docs/issue-number-description`
+  - Example: `docs/8-update-api-documentation`
+
+- **Hotfixes**: `hotfix/issue-number-description`
+  - Example: `hotfix/20-critical-security-fix`
+
+#### Branch Protection Rules
+
+**develop branch:**
+- Requires pull request reviews
+- Requires status checks to pass
+- No direct pushes allowed
+
+**main branch:**
+- Requires pull request reviews
+- Requires status checks to pass
+- Requires up-to-date branches
+- No direct pushes allowed
+
+#### Issue Integration
+
+- **Link issues** in commit messages: `feat: add docker environment (#1)`
+- **Link issues** in PR descriptions: `Closes #1`
+- **Update issue status** when creating PRs and merging
+- **Use issue numbers** in branch names for easy tracking
 
 ### Commit Message Convention
 
