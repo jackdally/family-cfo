@@ -94,6 +94,32 @@ services:
     networks:
       - familycfo-network
 
+  # Docusaurus Documentation Site
+  docs:
+    build:
+      context: .
+      dockerfile: docs-site/Dockerfile
+    container_name: familycfo-docs
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./docs-site:/app
+      - ./docs:/app/docs
+      - /app/node_modules
+    depends_on:
+      - web
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - familycfo-network
+
 volumes:
   postgres_data:
     driver: local

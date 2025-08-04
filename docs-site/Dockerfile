@@ -8,17 +8,17 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 # Copy package files
-COPY web/package*.json ./
+COPY docs-site/package*.json ./
 COPY pnpm-lock.yaml ./
 
 # Install dependencies
 RUN pnpm install
 
 # Copy the rest of the application
-COPY web/ .
+COPY docs-site/ .
 
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Start the application with hot reload
-CMD ["pnpm", "dev"] 
+# Start the development server with hot reload
+CMD ["pnpm", "start"] 
