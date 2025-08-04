@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # FamilyCFO API Documentation
 
 ## Overview

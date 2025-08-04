@@ -5,8 +5,8 @@ async function updateDocsStatus() {
   try {
     console.log('🔄 Updating documentation status...');
     
-    // Read the current status template
-    const statusPath = 'docs-site/docs/development/current-status.md';
+    // Read the current status template from the source docs directory
+    const statusPath = 'docs/development/current-status.md';
     let content = await fs.readFile(statusPath, 'utf-8');
     
     // Update the last updated date
@@ -16,12 +16,24 @@ async function updateDocsStatus() {
       day: 'numeric'
     });
     
-    content = content.replace(
-      /\*Last updated: \[Current Date\]\*/,
-      `*Last updated: ${currentDate}*`
-    );
+    // Check if there's already a last updated section
+    if (content.includes('*Last updated:')) {
+      // Update existing last updated line
+      content = content.replace(
+        /\*Last updated:.*?\*/,
+        `*Last updated: ${currentDate}*`
+      );
+    } else {
+      // Add last updated section after the title
+      const titleEnd = content.indexOf('\n', content.indexOf('# Current Development Status'));
+      if (titleEnd !== -1) {
+        const beforeTitle = content.substring(0, titleEnd + 1);
+        const afterTitle = content.substring(titleEnd + 1);
+        content = `${beforeTitle}*Last updated: ${currentDate}*\n\n${afterTitle}`;
+      }
+    }
     
-    // Write the updated content
+    // Write the updated content back to source
     await fs.writeFile(statusPath, content);
     
     console.log('✅ Documentation status updated');

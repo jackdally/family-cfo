@@ -10,64 +10,67 @@ async function generateDataDictionary() {
     // Parse the schema manually
     const models = parsePrismaSchema(schemaContent);
     
-    let md = `# Family CFO Data Dictionary
-
-This document describes the database schema for the Family CFO application, which helps families plan and track their financial scenarios.
-
-## Overview
-
-The application is built around the concept of **Scenarios** - different financial planning scenarios that can be compared and analyzed. Each scenario contains accounts, transactions, and balances.
-
-## Models
-
-`;
-
-    // Generate markdown for each model
+    // Check if data-dictionary.md already exists
+    const existingPath = 'docs/data-dictionary.md';
+    let existingContent = '';
+    let hasExisting = false;
+    
+    try {
+      existingContent = await fs.readFile(existingPath, 'utf-8');
+      hasExisting = true;
+      console.log('📖 Found existing data-dictionary.md - will enhance it');
+    } catch (error) {
+      console.log('📝 No existing data-dictionary.md found - will create new one');
+    }
+    
+    // Generate the models section
+    let modelsSection = `## Models\n\n`;
+    
     for (const model of models) {
-      md += `### ${model.name}\n\n`;
+      modelsSection += `### ${model.name}\n\n`;
       
       // Add model documentation if available
       if (model.documentation) {
-        md += `${model.documentation}\n\n`;
+        modelsSection += `${model.documentation}\n\n`;
       }
       
-      md += `#### Fields\n\n`;
-      md += `| Field | Type | Required | Description |\n`;
-      md += `|-------|------|----------|-------------|\n`;
+      modelsSection += `#### Fields\n\n`;
+      modelsSection += `| Field | Type | Required | Description |\n`;
+      modelsSection += `|-------|------|----------|-------------|\n`;
       
       for (const field of model.fields) {
         const required = field.isRequired ? 'Yes' : 'No';
         const description = field.documentation || '';
-        md += `| \`${field.name}\` | \`${field.type}${field.isList ? '[]' : ''}\` | ${required} | ${description} |\n`;
+        modelsSection += `| \`${field.name}\` | \`${field.type}${field.isList ? '[]' : ''}\` | ${required} | ${description} |\n`;
       }
       
-      md += '\n';
+      modelsSection += '\n';
       
       // Add relationships section if there are relations
       const relationFields = model.fields.filter(f => f.relationName);
       if (relationFields.length > 0) {
-        md += `#### Relationships\n\n`;
+        modelsSection += `#### Relationships\n\n`;
         for (const field of relationFields) {
-          md += `- **${field.name}**: ${field.relationName || 'Relationship'} with \`${field.type}\`\n`;
+          modelsSection += `- **${field.name}**: ${field.relationName || 'Relationship'} with \`${field.type}\`\n`;
         }
-        md += '\n';
+        modelsSection += '\n';
       }
       
       // Add indexes section if there are indexes
       if (model.indexes.length > 0) {
-        md += `#### Indexes\n\n`;
+        modelsSection += `#### Indexes\n\n`;
         for (const index of model.indexes) {
           const indexName = index.name ? ` (${index.name})` : '';
-          md += `- \`${index.fields.join(', ')}\`${indexName}\n`;
+          modelsSection += `- \`${index.fields.join(', ')}\`${indexName}\n`;
         }
-        md += '\n';
+        modelsSection += '\n';
       }
       
-      md += '---\n\n';
+      modelsSection += '---\n\n';
     }
     
-    // Add a relationships overview section
-    md += `## Relationships Overview
+    // Generate relationships overview
+    const relationshipsSection = `## Relationships Overview
 
 ### Scenario (Root Entity)
 - **Scenario** is the root entity that contains all other data
@@ -108,13 +111,42 @@ The application is built around the concept of **Scenarios** - different financi
 
 `;
 
+    let finalContent = '';
+    
+    if (hasExisting) {
+      // Enhance existing content by replacing the models section
+      const modelsStart = existingContent.indexOf('## Models');
+      if (modelsStart !== -1) {
+        const beforeModels = existingContent.substring(0, modelsStart);
+        finalContent = beforeModels + modelsSection + relationshipsSection;
+      } else {
+        // If no models section found, append to end
+        finalContent = existingContent + '\n\n' + modelsSection + relationshipsSection;
+      }
+    } else {
+      // Create new content
+      finalContent = `# Family CFO Data Dictionary
+
+This document describes the database schema for the Family CFO application, which helps families plan and track their financial scenarios.
+
+## Overview
+
+The application is built around the concept of **Scenarios** - different financial planning scenarios that can be compared and analyzed. Each scenario contains accounts, transactions, and balances.
+
+${modelsSection}${relationshipsSection}`;
+    }
+    
     // Ensure docs directory exists
     await fs.mkdir('docs', { recursive: true });
     
     // Write the markdown file
-    await fs.writeFile('docs/data-dictionary.md', md);
+    await fs.writeFile(existingPath, finalContent);
     
     console.log('✅ Data dictionary generated: docs/data-dictionary.md');
+    console.log('📝 Next steps:');
+    console.log('  - Review and enhance the generated content');
+    console.log('  - Add any missing documentation');
+    console.log('  - Run: pnpm run docs:sync');
     
   } catch (error) {
     console.error('❌ Error generating data dictionary:', error);

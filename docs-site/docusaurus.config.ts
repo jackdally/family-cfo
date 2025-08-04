@@ -71,26 +71,6 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          to: '/project-overview',
-          label: 'Project Overview',
-          position: 'left',
-        },
-        {
-          to: '/roadmap',
-          label: 'Roadmap',
-          position: 'left',
-        },
-        {
-          to: '/api',
-          label: 'API',
-          position: 'left',
-        },
-        {
-          to: '/development',
-          label: 'Development',
-          position: 'left',
-        },
-        {
           href: 'https://github.com/jackdally/family-cfo',
           label: 'GitHub',
           position: 'right',
@@ -108,33 +88,8 @@ const config: Config = {
               to: '/docs/intro',
             },
             {
-              label: 'Project Overview',
-              to: '/project-overview',
-            },
-            {
-              label: 'API Reference',
-              to: '/api',
-            },
-            {
-              label: 'Development Guide',
-              to: '/development',
-            },
-          ],
-        },
-        {
-          title: 'Project',
-          items: [
-            {
-              label: 'Roadmap',
-              to: '/roadmap',
-            },
-            {
               label: 'Data Dictionary',
               to: '/docs/data-dictionary',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/jackdally/family-cfo',
             },
           ],
         },
@@ -142,7 +97,11 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'GitHub Issues',
+              label: 'GitHub',
+              href: 'https://github.com/jackdally/family-cfo',
+            },
+            {
+              label: 'Issues',
               href: 'https://github.com/jackdally/family-cfo/issues',
             },
             {

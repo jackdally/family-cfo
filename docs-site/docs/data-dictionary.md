@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Family CFO Data Dictionary
 
 This document describes the database schema for the Family CFO application, which helps families plan and track their financial scenarios.

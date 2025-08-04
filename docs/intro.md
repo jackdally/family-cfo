@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Welcome to FamilyCFO
 
 > A luxury-grade, CFO-level personal finance platform that treats a household like a boutique family office—providing month-by-month forecasting, liquidity intelligence, scenario planning, and long-term wealth optimization.
