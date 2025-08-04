@@ -4,25 +4,24 @@ FROM node:18-alpine
 # Set the working directory
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm
-
-# Copy workspace configuration
-COPY pnpm-workspace.yaml ./
-COPY pnpm-lock.yaml ./
-
 # Copy package files
 COPY web/package*.json ./
-COPY docs-site/package*.json ./docs-site/
 
-# Install dependencies for the web workspace
-RUN pnpm install --filter web
+# Install dependencies
+RUN npm install
 
-# Copy the rest of the application
-COPY web/ ./
+# Copy source files (excluding node_modules)
+COPY web/src ./src
+COPY web/public ./public
+COPY web/next.config.ts ./
+COPY web/postcss.config.mjs ./
+COPY web/tsconfig.json ./
+COPY web/components.json ./
+COPY web/eslint.config.mjs ./
+COPY web/next-env.d.ts ./
 
 # Expose the port the app runs on
 EXPOSE 3000
 
 # Start the application with hot reload
-CMD ["pnpm", "dev"] 
+CMD ["npm", "run", "dev"] 

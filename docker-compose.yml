@@ -83,12 +83,6 @@ services:
     volumes:
       - ./web/src:/app/src
       - ./web/public:/app/public
-      - ./web/next.config.ts:/app/next.config.ts
-      - ./web/postcss.config.mjs:/app/postcss.config.mjs
-      - ./web/tsconfig.json:/app/tsconfig.json
-      - ./web/components.json:/app/components.json
-      - ./web/eslint.config.mjs:/app/eslint.config.mjs
-      - ./web/next-env.d.ts:/app/next-env.d.ts
       - /app/node_modules
       - /app/.next
     depends_on:
@@ -116,9 +110,6 @@ services:
     volumes:
       - ./docs-site/src:/app/src
       - ./docs-site/static:/app/static
-      - ./docs-site/docusaurus.config.ts:/app/docusaurus.config.ts
-      - ./docs-site/sidebars.ts:/app/sidebars.ts
-      - ./docs-site/tsconfig.json:/app/tsconfig.json
       - ./docs:/app/docs
       - /app/node_modules
       - /app/build
