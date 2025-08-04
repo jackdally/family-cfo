@@ -7,15 +7,19 @@ WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm
 
-# Copy package files
-COPY web/package*.json ./
+# Copy workspace configuration
+COPY pnpm-workspace.yaml ./
 COPY pnpm-lock.yaml ./
 
-# Install dependencies
-RUN pnpm install
+# Copy package files
+COPY web/package*.json ./
+COPY docs-site/package*.json ./docs-site/
+
+# Install dependencies for the web workspace
+RUN pnpm install --filter web
 
 # Copy the rest of the application
-COPY web/ .
+COPY web/ ./
 
 # Expose the port the app runs on
 EXPOSE 3000
