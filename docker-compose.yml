@@ -89,6 +89,8 @@ services:
       - ./web/components.json:/app/components.json
       - ./web/eslint.config.mjs:/app/eslint.config.mjs
       - ./web/next-env.d.ts:/app/next-env.d.ts
+      - /app/node_modules
+      - /app/.next
     depends_on:
       - hasura
     healthcheck:
@@ -118,6 +120,8 @@ services:
       - ./docs-site/sidebars.ts:/app/sidebars.ts
       - ./docs-site/tsconfig.json:/app/tsconfig.json
       - ./docs:/app/docs
+      - /app/node_modules
+      - /app/build
     depends_on:
       - web
     healthcheck:
