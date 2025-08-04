@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.*
+
+# npm lockfiles (we use pnpm)
+package-lock.json
+npm-debug.log*
 .yarn/*
 !.yarn/patches
 !.yarn/plugins

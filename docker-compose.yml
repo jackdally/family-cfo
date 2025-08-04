@@ -22,6 +22,12 @@ services:
       start_period: 30s
     networks:
       - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
   # Hasura GraphQL Engine
   hasura:
@@ -50,6 +56,12 @@ services:
       start_period: 40s
     networks:
       - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
 
   # Redis for caching (optional but recommended)
   redis:
@@ -67,6 +79,80 @@ services:
       retries: 5
     networks:
       - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+
+  # Next.js Web Application
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    container_name: familycfo-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_HASURA_ENDPOINT=http://hasura:8080
+    volumes:
+      - ./web/src:/app/src
+      - ./web/public:/app/public
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - hasura
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
+
+  # Docusaurus Documentation Site
+  docs:
+    build:
+      context: .
+      dockerfile: docs-site/Dockerfile
+    container_name: familycfo-docs
+    restart: unless-stopped
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./docs-site/src:/app/src
+      - ./docs-site/static:/app/static
+      - ./docs:/app/docs
+      - /app/node_modules
+      - /app/build
+    depends_on:
+      - web
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
 volumes:
   postgres_data:

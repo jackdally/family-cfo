@@ -75,6 +75,20 @@ This guide covers setting up and using the FamilyCFO Docker development environm
 - **Health Check**: Redis ping
 - **Purpose**: Session storage and caching
 
+### Next.js Web Application
+
+- **Port**: `3000`
+- **Health Check**: HTTP endpoint `/api/health`
+- **Purpose**: Main FamilyCFO application
+- **Hot Reload**: Enabled for development
+
+### Docusaurus Documentation Site
+
+- **Port**: `3001`
+- **Health Check**: HTTP endpoint
+- **Purpose**: Project documentation and guides
+- **Hot Reload**: Enabled for development
+
 ## 📋 Environment Variables
 
 ### Required Variables
@@ -102,6 +116,9 @@ NEXT_PUBLIC_HASURA_ENDPOINT="http://localhost:8080"
 ```bash
 # Redis
 REDIS_URL="redis://localhost:6379"
+
+# Documentation
+NEXT_PUBLIC_DOCS_URL="http://localhost:3001"
 
 # Authentication
 NEXTAUTH_URL="http://localhost:3000"
@@ -197,6 +214,9 @@ hasura metadata apply
 ```bash
 # Start Next.js development server
 pnpm --filter web dev
+
+# Start Docusaurus development server
+pnpm --filter docs-site start
 
 # Run tests
 pnpm test
