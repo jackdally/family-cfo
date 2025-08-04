@@ -1,6 +1,9 @@
 # Use the official Node.js runtime as the base image
 FROM node:18-alpine
 
+# Install wget for health checks
+RUN apk add --no-cache wget
+
 # Set the working directory
 WORKDIR /app
 

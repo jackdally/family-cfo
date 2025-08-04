@@ -22,6 +22,12 @@ services:
       start_period: 30s
     networks:
       - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
   # Hasura GraphQL Engine
   hasura:
@@ -50,6 +56,12 @@ services:
       start_period: 40s
     networks:
       - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
 
   # Redis for caching (optional but recommended)
   redis:
@@ -67,6 +79,12 @@ services:
       retries: 5
     networks:
       - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
 
   # Next.js Web Application
   web:
@@ -88,13 +106,19 @@ services:
     depends_on:
       - hasura
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
     networks:
       - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
 
   # Docusaurus Documentation Site
   docs:
@@ -104,7 +128,7 @@ services:
     container_name: familycfo-docs
     restart: unless-stopped
     ports:
-      - "3001:3000"
+      - "3002:3000"
     environment:
       - NODE_ENV=development
     volumes:
@@ -116,13 +140,19 @@ services:
     depends_on:
       - web
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
     networks:
       - familycfo-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
 volumes:
   postgres_data:
