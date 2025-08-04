@@ -17,6 +17,9 @@ COPY docs-site/docusaurus.config.ts ./
 COPY docs-site/sidebars.ts ./
 COPY docs-site/tsconfig.json ./
 
+# Copy updated package.json after install
+COPY docs-site/package.json ./
+
 # Expose the port the app runs on
 EXPOSE 3000
 
