@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: process.env.NODE_ENV === 'production' ? 'https://familycfo.com' : 'http://localhost:3002',
+  url: process.env.NODE_ENV === 'production' ? 'https://familycfo.com' : 'http://localhost:3000',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -123,6 +123,12 @@ const config: Config = {
       respectPrefersColorScheme: false, // Force dark mode as default
     },
   } satisfies Preset.ThemeConfig,
+
+  // Docker-specific configuration
+  customFields: {
+    // This helps with Docker development
+    dockerDev: process.env.NODE_ENV === 'development',
+  },
 };
 
 export default config;
