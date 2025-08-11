@@ -60,8 +60,12 @@ export async function ensureAccountByName(ownerId: string, scenarioId: string, n
 
 export type LedgerType = 'ACTUAL' | 'PROJECTED'
 
-export async function insertIncome(ownerId: string, accountId: string, rows: Array<{ date: string; amount: number; label: string; ledger: LedgerType }>) {
-  if (rows.length === 0) return { affected_rows: 0 }
+export async function insertIncome(
+  ownerId: string,
+  accountId: string,
+  rows: Array<{ date: string; amount: number; label: string; ledger: LedgerType }>
+): Promise<{ insert_IncomeEvent: { affected_rows: number } }> {
+  if (rows.length === 0) return { insert_IncomeEvent: { affected_rows: 0 } }
   const m = `
     mutation M($objects: [IncomeEvent_insert_input!]!) { insert_IncomeEvent(objects: $objects) { affected_rows } }
   `
@@ -70,8 +74,12 @@ export async function insertIncome(ownerId: string, accountId: string, rows: Arr
   })
 }
 
-export async function insertExpense(ownerId: string, accountId: string, rows: Array<{ date: string; amount: number; category: string; ledger: LedgerType }>) {
-  if (rows.length === 0) return { affected_rows: 0 }
+export async function insertExpense(
+  ownerId: string,
+  accountId: string,
+  rows: Array<{ date: string; amount: number; category: string; ledger: LedgerType }>
+): Promise<{ insert_ExpenseEvent: { affected_rows: number } }> {
+  if (rows.length === 0) return { insert_ExpenseEvent: { affected_rows: 0 } }
   const m = `
     mutation M($objects: [ExpenseEvent_insert_input!]!) { insert_ExpenseEvent(objects: $objects) { affected_rows } }
   `
