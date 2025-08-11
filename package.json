@@ -10,7 +10,7 @@
     "start:web": "npm run -w family-cfo-web start",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev --name init --skip-seed",
-    "hasura:apply": "curl -sS -H 'x-hasura-admin-secret: '$(cat .env | grep HASURA_GRAPHQL_ADMIN_SECRET | cut -d= -f2)'' -H 'Content-Type: application/json' -X POST http://localhost:8080/v1/metadata --data-binary @hasura/metadata/metadata.yaml",
+    "hasura:apply": "node scripts/hasura-apply.mjs",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down -v"
   },
