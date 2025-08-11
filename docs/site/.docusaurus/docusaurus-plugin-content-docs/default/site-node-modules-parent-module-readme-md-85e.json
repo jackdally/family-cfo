@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/parent-module/readme",
+  "title": "parent-module [![Build Status](https://travis-ci.org/sindresorhus/parent-module.svg?branch=master)](https://travis-ci.org/sindresorhus/parent-module)",
+  "description": "Get the path of the parent module",
+  "source": "@site/node_modules/parent-module/readme.md",
+  "sourceDirName": "site/node_modules/parent-module",
+  "slug": "/site/node_modules/parent-module/",
+  "permalink": "/family-cfo/site/node_modules/parent-module/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

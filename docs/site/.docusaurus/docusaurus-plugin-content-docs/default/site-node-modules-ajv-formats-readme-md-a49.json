@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/ajv-formats/README",
+  "title": "ajv-formats",
+  "description": "JSON Schema formats for Ajv",
+  "source": "@site/node_modules/ajv-formats/README.md",
+  "sourceDirName": "site/node_modules/ajv-formats",
+  "slug": "/site/node_modules/ajv-formats/",
+  "permalink": "/family-cfo/site/node_modules/ajv-formats/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

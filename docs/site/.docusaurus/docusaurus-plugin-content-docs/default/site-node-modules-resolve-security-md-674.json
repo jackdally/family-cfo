@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/resolve/SECURITY",
+  "title": "Security",
+  "description": "Please email @ljharb or see https://tidelift.com/security if you have a potential security vulnerability to report.",
+  "source": "@site/node_modules/resolve/SECURITY.md",
+  "sourceDirName": "site/node_modules/resolve",
+  "slug": "/site/node_modules/resolve/SECURITY",
+  "permalink": "/family-cfo/site/node_modules/resolve/SECURITY",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

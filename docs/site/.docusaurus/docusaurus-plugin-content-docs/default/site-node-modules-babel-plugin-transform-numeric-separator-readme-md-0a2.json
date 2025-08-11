@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@babel/plugin-transform-numeric-separator/README",
+  "title": "@babel/plugin-transform-numeric-separator",
+  "description": "Remove numeric separators from Decimal, Binary, Hex and Octal literals",
+  "source": "@site/node_modules/@babel/plugin-transform-numeric-separator/README.md",
+  "sourceDirName": "site/node_modules/@babel/plugin-transform-numeric-separator",
+  "slug": "/site/node_modules/@babel/plugin-transform-numeric-separator/",
+  "permalink": "/family-cfo/site/node_modules/@babel/plugin-transform-numeric-separator/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

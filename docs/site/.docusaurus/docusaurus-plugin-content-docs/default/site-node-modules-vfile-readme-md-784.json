@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/vfile/readme",
+  "title": "readme",
+  "description": "Build",
+  "source": "@site/node_modules/vfile/readme.md",
+  "sourceDirName": "site/node_modules/vfile",
+  "slug": "/site/node_modules/vfile/",
+  "permalink": "/family-cfo/site/node_modules/vfile/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

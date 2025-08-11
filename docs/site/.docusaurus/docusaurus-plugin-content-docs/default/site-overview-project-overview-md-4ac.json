@@ -1,0 +1,19 @@
+{
+  "id": "overview/project-overview",
+  "title": "Project Overview: Family CFO (by Steward)",
+  "description": "🎯 Mission & Vision",
+  "source": "@site/../overview/project-overview.md",
+  "sourceDirName": "overview",
+  "slug": "/overview/project-overview",
+  "permalink": "/family-cfo/overview/project-overview",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "next": {
+    "title": "architecture",
+    "permalink": "/family-cfo/adr/architecture"
+  }
+}

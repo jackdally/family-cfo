@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/dom-converter/README",
+  "title": "README",
+  "description": "Converts bare objects to DOM objects, compatible with htmlparser2's DOM objects.",
+  "source": "@site/node_modules/dom-converter/README.md",
+  "sourceDirName": "site/node_modules/dom-converter",
+  "slug": "/site/node_modules/dom-converter/",
+  "permalink": "/family-cfo/site/node_modules/dom-converter/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

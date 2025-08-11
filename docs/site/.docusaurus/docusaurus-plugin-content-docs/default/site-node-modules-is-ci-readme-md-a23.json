@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/is-ci/README",
+  "title": "is-ci",
+  "description": "Returns true if the current environment is a Continuous Integration",
+  "source": "@site/node_modules/is-ci/README.md",
+  "sourceDirName": "site/node_modules/is-ci",
+  "slug": "/site/node_modules/is-ci/",
+  "permalink": "/family-cfo/site/node_modules/is-ci/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

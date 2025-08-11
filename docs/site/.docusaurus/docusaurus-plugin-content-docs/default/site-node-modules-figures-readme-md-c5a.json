@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/figures/readme",
+  "title": "figures [![Build Status](https://travis-ci.org/sindresorhus/figures.svg?branch=master)](https://travis-ci.org/sindresorhus/figures)",
+  "description": "Unicode symbols with Windows CMD fallbacks",
+  "source": "@site/node_modules/figures/readme.md",
+  "sourceDirName": "site/node_modules/figures",
+  "slug": "/site/node_modules/figures/",
+  "permalink": "/family-cfo/site/node_modules/figures/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

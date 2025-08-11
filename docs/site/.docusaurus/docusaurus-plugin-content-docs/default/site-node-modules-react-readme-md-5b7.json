@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/react/README",
+  "title": "react",
+  "description": "React is a JavaScript library for creating user interfaces.",
+  "source": "@site/node_modules/react/README.md",
+  "sourceDirName": "site/node_modules/react",
+  "slug": "/site/node_modules/react/",
+  "permalink": "/family-cfo/site/node_modules/react/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

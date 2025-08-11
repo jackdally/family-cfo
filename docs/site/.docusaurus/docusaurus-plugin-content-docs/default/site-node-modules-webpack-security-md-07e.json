@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/webpack/SECURITY",
+  "title": "Reporting Security Issues",
+  "description": "If you discover a security issue in webpack, please report it by sending an",
+  "source": "@site/node_modules/webpack/SECURITY.md",
+  "sourceDirName": "site/node_modules/webpack",
+  "slug": "/site/node_modules/webpack/SECURITY",
+  "permalink": "/family-cfo/site/node_modules/webpack/SECURITY",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

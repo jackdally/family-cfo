@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/serialize-javascript/README",
+  "title": "Serialize JavaScript",
+  "description": "Serialize JavaScript to a superset of JSON that includes regular expressions, dates and functions.",
+  "source": "@site/node_modules/serialize-javascript/README.md",
+  "sourceDirName": "site/node_modules/serialize-javascript",
+  "slug": "/site/node_modules/serialize-javascript/",
+  "permalink": "/family-cfo/site/node_modules/serialize-javascript/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

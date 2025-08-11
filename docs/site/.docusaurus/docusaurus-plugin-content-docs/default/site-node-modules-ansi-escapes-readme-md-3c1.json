@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/ansi-escapes/readme",
+  "title": "ansi-escapes",
+  "description": "ANSI escape codes for manipulating the terminal",
+  "source": "@site/node_modules/ansi-escapes/readme.md",
+  "sourceDirName": "site/node_modules/ansi-escapes",
+  "slug": "/site/node_modules/ansi-escapes/",
+  "permalink": "/family-cfo/site/node_modules/ansi-escapes/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

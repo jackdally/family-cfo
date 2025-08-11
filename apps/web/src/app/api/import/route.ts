@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { parse } from 'csv-parse/sync'
+import { ensureAccountByName, getOrCreateDefaultScenario, insertExpense, insertIncome } from '../../../lib/hasura'
 
 type ImportRow = {
   date: string
@@ -34,14 +35,41 @@ export async function POST(req: NextRequest) {
   }) as ImportRow[]
 
   // TODO: Map accounts, insert rows via GraphQL mutation
-  const summary = {
-    total: records.length,
-    income: records.filter(r => r.type === 'income').length,
-    expense: records.filter(r => r.type === 'expense').length,
-    transfer: records.filter(r => r.type === 'transfer').length,
+  const ownerId = 'owner-dev'
+  const scenario = await getOrCreateDefaultScenario(ownerId)
+
+  // Group by account name
+  const byAccount = new Map<string, ImportRow[]>()
+  for (const r of records) {
+    const key = r.account || 'Checking'
+    if (!byAccount.has(key)) byAccount.set(key, [])
+    byAccount.get(key)!.push(r)
   }
 
-  return NextResponse.json({ ok: true, summary })
+  let totalIncome = 0
+  let totalExpense = 0
+
+  for (const [accountName, rows] of byAccount) {
+    const account = await ensureAccountByName(ownerId, scenario.id, accountName, 'checking')
+    const incomeRows = rows
+      .filter(r => r.type === 'income')
+      .map(r => ({ date: r.date, amount: Number(r.amount), label: r.label || 'income', ledger: r.ledger }))
+    const expenseRows = rows
+      .filter(r => r.type === 'expense')
+      .map(r => ({ date: r.date, amount: Math.abs(Number(r.amount)), category: r.category || 'uncategorized', ledger: r.ledger }))
+
+    if (incomeRows.length) {
+      const res = await insertIncome(ownerId, account.id, incomeRows)
+      totalIncome += res.insert_IncomeEvent.affected_rows
+    }
+    if (expenseRows.length) {
+      const res = await insertExpense(ownerId, account.id, expenseRows)
+      totalExpense += res.insert_ExpenseEvent.affected_rows
+    }
+  }
+
+  const summary = { total: records.length, income: totalIncome, expense: totalExpense, transfer: records.filter(r => r.type === 'transfer').length }
+  return NextResponse.json({ ok: true, scenarioId: scenario.id, summary })
 }
 
 

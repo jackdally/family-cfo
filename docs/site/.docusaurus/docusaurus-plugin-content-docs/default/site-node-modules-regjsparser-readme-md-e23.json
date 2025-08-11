@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/regjsparser/README",
+  "title": "RegJSParser",
+  "description": "Parsing the JavaScript's RegExp in JavaScript.",
+  "source": "@site/node_modules/regjsparser/README.md",
+  "sourceDirName": "site/node_modules/regjsparser",
+  "slug": "/site/node_modules/regjsparser/",
+  "permalink": "/family-cfo/site/node_modules/regjsparser/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

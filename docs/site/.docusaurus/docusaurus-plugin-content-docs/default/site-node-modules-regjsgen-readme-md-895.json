@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/regjsgen/README",
+  "title": "regjsgen [![Build status][ci-img]][ci] [![Code coverage status][codecov-img]][codecov]",
+  "description": "Generate regular expressions from regjsparser’s AST.",
+  "source": "@site/node_modules/regjsgen/README.md",
+  "sourceDirName": "site/node_modules/regjsgen",
+  "slug": "/site/node_modules/regjsgen/",
+  "permalink": "/family-cfo/site/node_modules/regjsgen/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

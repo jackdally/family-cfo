@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/aggregate-error/readme",
+  "title": "aggregate-error [![Build Status](https://travis-ci.org/sindresorhus/aggregate-error.svg?branch=master)](https://travis-ci.org/sindresorhus/aggregate-error)",
+  "description": "Create an error from multiple errors",
+  "source": "@site/node_modules/aggregate-error/readme.md",
+  "sourceDirName": "site/node_modules/aggregate-error",
+  "slug": "/site/node_modules/aggregate-error/",
+  "permalink": "/family-cfo/site/node_modules/aggregate-error/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

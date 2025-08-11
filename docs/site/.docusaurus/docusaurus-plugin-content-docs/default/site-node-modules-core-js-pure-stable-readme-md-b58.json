@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/core-js-pure/stable/README",
+  "title": "README",
+  "description": "This folder contains entry points for all stable core-js features with dependencies. It's the recommended way for usage only required features.",
+  "source": "@site/node_modules/core-js-pure/stable/README.md",
+  "sourceDirName": "site/node_modules/core-js-pure/stable",
+  "slug": "/site/node_modules/core-js-pure/stable/",
+  "permalink": "/family-cfo/site/node_modules/core-js-pure/stable/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/is-regexp/readme",
+  "title": "is-regexp [![Build Status](https://travis-ci.org/sindresorhus/is-regexp.svg?branch=master)](https://travis-ci.org/sindresorhus/is-regexp)",
+  "description": "Check whether a variable is a regular expression",
+  "source": "@site/node_modules/is-regexp/readme.md",
+  "sourceDirName": "site/node_modules/is-regexp",
+  "slug": "/site/node_modules/is-regexp/",
+  "permalink": "/family-cfo/site/node_modules/is-regexp/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

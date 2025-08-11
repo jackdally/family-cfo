@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@types/eslint/README",
+  "title": "Installation",
+  "description": "npm install --save @types/eslint",
+  "source": "@site/node_modules/@types/eslint/README.md",
+  "sourceDirName": "site/node_modules/@types/eslint",
+  "slug": "/site/node_modules/@types/eslint/",
+  "permalink": "/family-cfo/site/node_modules/@types/eslint/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

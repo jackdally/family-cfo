@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/escape-goat/readme",
+  "title": "readme",
+  "description": "Escape a string for use in HTML or the inverse",
+  "source": "@site/node_modules/escape-goat/readme.md",
+  "sourceDirName": "site/node_modules/escape-goat",
+  "slug": "/site/node_modules/escape-goat/",
+  "permalink": "/family-cfo/site/node_modules/escape-goat/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

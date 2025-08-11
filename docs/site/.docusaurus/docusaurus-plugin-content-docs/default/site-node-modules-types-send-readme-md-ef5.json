@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@types/send/README",
+  "title": "Installation",
+  "description": "npm install --save @types/send",
+  "source": "@site/node_modules/@types/send/README.md",
+  "sourceDirName": "site/node_modules/@types/send",
+  "slug": "/site/node_modules/@types/send/",
+  "permalink": "/family-cfo/site/node_modules/@types/send/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

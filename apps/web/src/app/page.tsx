@@ -6,6 +6,10 @@ export default function HomePage() {
         MVP shell ready. Next steps: connect to Hasura GraphQL, scaffold auth, and build
         Accounts, Events, and Scenarios CRUD.
       </p>
+      <div className="mt-8 space-x-4">
+        <a className="rounded bg-emerald-600 px-3 py-2 text-sm font-medium text-white" href="/scenarios">Scenarios</a>
+        <a className="rounded bg-emerald-600 px-3 py-2 text-sm font-medium text-white" href="/import">CSV Import</a>
+      </div>
     </main>
   )
 }

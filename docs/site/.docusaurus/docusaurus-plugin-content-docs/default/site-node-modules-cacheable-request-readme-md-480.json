@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/cacheable-request/README",
+  "title": "README",
+  "description": "Wrap native HTTP requests with RFC compliant cache support",
+  "source": "@site/node_modules/cacheable-request/README.md",
+  "sourceDirName": "site/node_modules/cacheable-request",
+  "slug": "/site/node_modules/cacheable-request/",
+  "permalink": "/family-cfo/site/node_modules/cacheable-request/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

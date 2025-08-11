@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/common-path-prefix/README",
+  "title": "common-path-prefix",
+  "description": "Computes the longest prefix string that is common to each path, excluding the base component. Tested with Node.js 8 and above.",
+  "source": "@site/node_modules/common-path-prefix/README.md",
+  "sourceDirName": "site/node_modules/common-path-prefix",
+  "slug": "/site/node_modules/common-path-prefix/",
+  "permalink": "/family-cfo/site/node_modules/common-path-prefix/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

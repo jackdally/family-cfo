@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/sitemap/api",
+  "title": "API",
+  "description": "- API",
+  "source": "@site/node_modules/sitemap/api.md",
+  "sourceDirName": "site/node_modules/sitemap",
+  "slug": "/site/node_modules/sitemap/api",
+  "permalink": "/family-cfo/site/node_modules/sitemap/api",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

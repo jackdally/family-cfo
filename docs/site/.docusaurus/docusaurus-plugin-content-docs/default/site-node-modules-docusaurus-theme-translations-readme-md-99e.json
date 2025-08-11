@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@docusaurus/theme-translations/README",
+  "title": "Docusaurus theme translations",
+  "description": "This package includes default translations for labels (like the pagination \"Next\" / \"Previous\") used by official Docusaurus themes.",
+  "source": "@site/node_modules/@docusaurus/theme-translations/README.md",
+  "sourceDirName": "site/node_modules/@docusaurus/theme-translations",
+  "slug": "/site/node_modules/@docusaurus/theme-translations/",
+  "permalink": "/family-cfo/site/node_modules/@docusaurus/theme-translations/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

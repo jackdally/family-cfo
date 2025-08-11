@@ -1,0 +1,24 @@
+{
+  "id": "adr/architecture",
+  "title": "architecture",
+  "description": "ADR 0001: Core Architecture for Family CFO MVP",
+  "source": "@site/../adr/0001-architecture.md",
+  "sourceDirName": "adr",
+  "slug": "/adr/architecture",
+  "permalink": "/family-cfo/adr/architecture",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Project Overview: Family CFO (by Steward)",
+    "permalink": "/family-cfo/overview/project-overview"
+  },
+  "next": {
+    "title": "README",
+    "permalink": "/family-cfo/csv/"
+  }
+}

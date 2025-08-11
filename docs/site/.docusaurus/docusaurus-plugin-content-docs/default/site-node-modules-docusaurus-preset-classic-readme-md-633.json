@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@docusaurus/preset-classic/README",
+  "title": "@docusaurus/preset-classic",
+  "description": "Classic preset for Docusaurus.",
+  "source": "@site/node_modules/@docusaurus/preset-classic/README.md",
+  "sourceDirName": "site/node_modules/@docusaurus/preset-classic",
+  "slug": "/site/node_modules/@docusaurus/preset-classic/",
+  "permalink": "/family-cfo/site/node_modules/@docusaurus/preset-classic/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

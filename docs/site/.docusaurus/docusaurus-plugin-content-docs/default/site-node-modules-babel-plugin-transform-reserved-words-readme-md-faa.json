@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@babel/plugin-transform-reserved-words/README",
+  "title": "@babel/plugin-transform-reserved-words",
+  "description": "Ensure that no reserved words are used.",
+  "source": "@site/node_modules/@babel/plugin-transform-reserved-words/README.md",
+  "sourceDirName": "site/node_modules/@babel/plugin-transform-reserved-words",
+  "slug": "/site/node_modules/@babel/plugin-transform-reserved-words/",
+  "permalink": "/family-cfo/site/node_modules/@babel/plugin-transform-reserved-words/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

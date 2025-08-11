@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@types/react/README",
+  "title": "Installation",
+  "description": "npm install --save @types/react",
+  "source": "@site/node_modules/@types/react/README.md",
+  "sourceDirName": "site/node_modules/@types/react",
+  "slug": "/site/node_modules/@types/react/",
+  "permalink": "/family-cfo/site/node_modules/@types/react/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}
