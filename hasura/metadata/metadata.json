@@ -1,0 +1,81 @@
+{
+  "version": 3,
+  "sources": [
+    {
+      "name": "default",
+      "kind": "postgres",
+      "configuration": {
+        "connection_info": {
+          "database_url": { "from_env": "HASURA_GRAPHQL_DATABASE_URL" },
+          "isolation_level": "read-committed",
+          "pool_settings": {}
+        }
+      },
+      "tables": [
+        {
+          "table": { "schema": "public", "name": "Scenario" },
+          "array_relationships": [
+            {
+              "name": "accounts",
+              "using": {
+                "foreign_key_constraint_on": {
+                  "table": { "schema": "public", "name": "Account" },
+                  "columns": ["scenarioId"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "table": { "schema": "public", "name": "Account" },
+          "object_relationships": [
+            {
+              "name": "scenario",
+              "using": { "foreign_key_constraint_on": "scenarioId" }
+            }
+          ],
+          "array_relationships": [
+            { "name": "balances", "using": { "foreign_key_constraint_on": { "table": { "schema": "public", "name": "AccountBalance" }, "columns": ["accountId"] } } },
+            { "name": "incomeEvents", "using": { "foreign_key_constraint_on": { "table": { "schema": "public", "name": "IncomeEvent" }, "columns": ["accountId"] } } },
+            { "name": "expenseEvents", "using": { "foreign_key_constraint_on": { "table": { "schema": "public", "name": "ExpenseEvent" }, "columns": ["accountId"] } } },
+            { "name": "outgoingTransfers", "using": { "foreign_key_constraint_on": { "table": { "schema": "public", "name": "AccountTransfer" }, "columns": ["fromAccountId"] } } },
+            { "name": "incomingTransfers", "using": { "foreign_key_constraint_on": { "table": { "schema": "public", "name": "AccountTransfer" }, "columns": ["toAccountId"] } } },
+            { "name": "recurringRules", "using": { "foreign_key_constraint_on": { "table": { "schema": "public", "name": "RecurringRule" }, "columns": ["accountId"] } } }
+          ]
+        },
+        {
+          "table": { "schema": "public", "name": "AccountBalance" },
+          "object_relationships": [
+            { "name": "account", "using": { "foreign_key_constraint_on": "accountId" } }
+          ]
+        },
+        {
+          "table": { "schema": "public", "name": "IncomeEvent" },
+          "object_relationships": [
+            { "name": "account", "using": { "foreign_key_constraint_on": "accountId" } }
+          ]
+        },
+        {
+          "table": { "schema": "public", "name": "ExpenseEvent" },
+          "object_relationships": [
+            { "name": "account", "using": { "foreign_key_constraint_on": "accountId" } }
+          ]
+        },
+        {
+          "table": { "schema": "public", "name": "AccountTransfer" },
+          "object_relationships": [
+            { "name": "fromAccount", "using": { "foreign_key_constraint_on": "fromAccountId" } },
+            { "name": "toAccount", "using": { "foreign_key_constraint_on": "toAccountId" } }
+          ]
+        },
+        {
+          "table": { "schema": "public", "name": "RecurringRule" },
+          "object_relationships": [
+            { "name": "account", "using": { "foreign_key_constraint_on": "accountId" } }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
