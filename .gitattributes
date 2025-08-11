@@ -1,0 +1,17 @@
+# Normalize text files
+* text=auto
+
+# Enforce LF for source/text files
+*.ts  text eol=lf
+*.tsx text eol=lf
+*.js  text eol=lf
+*.mjs text eol=lf
+*.css text eol=lf
+*.md  text eol=lf
+
+# Treat common binaries as binary (no EOL conversion/diff)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
