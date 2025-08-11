@@ -14,6 +14,25 @@
       "tables": [
         {
           "table": { "schema": "public", "name": "Scenario" },
+          "select_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["id", "name", "ownerId", "createdAt", "updatedAt"],
+                "filter": { "ownerId": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "check": { "ownerId": { "_eq": "X-Hasura-User-Id" } },
+                "set": { "ownerId": "X-Hasura-User-Id" },
+                "columns": ["name", "ownerId"]
+              }
+            }
+          ],
           "array_relationships": [
             {
               "name": "accounts",
@@ -28,6 +47,25 @@
         },
         {
           "table": { "schema": "public", "name": "Account" },
+          "select_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["id", "name", "type", "scenarioId", "ownerId", "createdAt", "updatedAt"],
+                "filter": { "ownerId": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "check": { "ownerId": { "_eq": "X-Hasura-User-Id" } },
+                "set": { "ownerId": "X-Hasura-User-Id" },
+                "columns": ["name", "type", "scenarioId", "ownerId"]
+              }
+            }
+          ],
           "object_relationships": [
             {
               "name": "scenario",
@@ -45,24 +83,100 @@
         },
         {
           "table": { "schema": "public", "name": "AccountBalance" },
+          "select_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["id", "date", "balance", "ledger", "accountId", "ownerId", "createdAt"],
+                "filter": { "ownerId": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "check": { "ownerId": { "_eq": "X-Hasura-User-Id" } },
+                "set": { "ownerId": "X-Hasura-User-Id" },
+                "columns": ["date", "balance", "ledger", "accountId", "ownerId"]
+              }
+            }
+          ],
           "object_relationships": [
             { "name": "account", "using": { "foreign_key_constraint_on": "accountId" } }
           ]
         },
         {
           "table": { "schema": "public", "name": "IncomeEvent" },
+          "select_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["id", "date", "amount", "label", "ledger", "accountId", "ownerId", "createdAt"],
+                "filter": { "ownerId": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "check": { "ownerId": { "_eq": "X-Hasura-User-Id" } },
+                "set": { "ownerId": "X-Hasura-User-Id" },
+                "columns": ["date", "amount", "label", "ledger", "accountId", "ownerId"]
+              }
+            }
+          ],
           "object_relationships": [
             { "name": "account", "using": { "foreign_key_constraint_on": "accountId" } }
           ]
         },
         {
           "table": { "schema": "public", "name": "ExpenseEvent" },
+          "select_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["id", "date", "amount", "category", "ledger", "accountId", "ownerId", "createdAt"],
+                "filter": { "ownerId": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "check": { "ownerId": { "_eq": "X-Hasura-User-Id" } },
+                "set": { "ownerId": "X-Hasura-User-Id" },
+                "columns": ["date", "amount", "category", "ledger", "accountId", "ownerId"]
+              }
+            }
+          ],
           "object_relationships": [
             { "name": "account", "using": { "foreign_key_constraint_on": "accountId" } }
           ]
         },
         {
           "table": { "schema": "public", "name": "AccountTransfer" },
+          "select_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["id", "fromAccountId", "toAccountId", "amount", "date", "ledger", "ownerId", "createdAt"],
+                "filter": { "ownerId": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "check": { "ownerId": { "_eq": "X-Hasura-User-Id" } },
+                "set": { "ownerId": "X-Hasura-User-Id" },
+                "columns": ["fromAccountId", "toAccountId", "amount", "date", "ledger", "ownerId"]
+              }
+            }
+          ],
           "object_relationships": [
             { "name": "fromAccount", "using": { "foreign_key_constraint_on": "fromAccountId" } },
             { "name": "toAccount", "using": { "foreign_key_constraint_on": "toAccountId" } }
@@ -70,6 +184,25 @@
         },
         {
           "table": { "schema": "public", "name": "RecurringRule" },
+          "select_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "columns": ["id", "accountId", "type", "amount", "startDate", "endDate", "interval", "label", "category", "ledger", "ownerId", "createdAt", "updatedAt"],
+                "filter": { "ownerId": { "_eq": "X-Hasura-User-Id" } }
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "user",
+              "permission": {
+                "check": { "ownerId": { "_eq": "X-Hasura-User-Id" } },
+                "set": { "ownerId": "X-Hasura-User-Id" },
+                "columns": ["accountId", "type", "amount", "startDate", "endDate", "interval", "label", "category", "ledger", "ownerId"]
+              }
+            }
+          ],
           "object_relationships": [
             { "name": "account", "using": { "foreign_key_constraint_on": "accountId" } }
           ]
