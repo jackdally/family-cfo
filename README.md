@@ -16,6 +16,15 @@
 5. Run the web app:
    - `npm run dev:web` then open `http://localhost:3000`
 
+### Hasura metadata (local)
+- Apply tracked tables/relationships:
+  - `node scripts/hasura-apply.mjs`
+- Quick GraphQL check (should return empty array on fresh DB):
+  - `curl -sS -H 'x-hasura-admin-secret: devadminsecret' -H 'Content-Type: application/json' -X POST http://localhost:8080/v1/graphql --data-binary '{"query":"query { Scenario(limit: 1) { id name } }"}'`
+
+### Docs site
+- `cd docs/site && npm install && npm run start`
+
 ### Services
 - Postgres: `localhost:5432`
 - Hasura Console: `http://localhost:8080` (admin secret: `devadminsecret`)
