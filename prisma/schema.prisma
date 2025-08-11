@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LedgerType {
+  ACTUAL
+  PROJECTED
+}
+
+model Scenario {
+  id        String   @id @default(uuid())
+  name      String
+  ownerId   String   // single-user MVP; later maps to user table
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Snapshot branches live as separate Scenario rows
+  accounts  Account[]
+
+  @@index([name])
+}
+
+model Account {
+  id         String    @id @default(uuid())
+  name       String
+  type       String
+  scenario   Scenario  @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  scenarioId String
+  ownerId    String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  balances       AccountBalance[]
+  incomeEvents   IncomeEvent[]
+  expenseEvents  ExpenseEvent[]
+  outgoingTransfers AccountTransfer[] @relation("fromAccount")
+  incomingTransfers AccountTransfer[] @relation("toAccount")
+  recurringRules   RecurringRule[]
+
+  @@index([scenarioId])
+  @@index([ownerId])
+}
+
+model AccountBalance {
+  id         String     @id @default(uuid())
+  date       DateTime
+  balance    Decimal    @db.Decimal(18, 6)
+  ledger     LedgerType
+  account    Account    @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId  String
+  ownerId    String
+  createdAt  DateTime   @default(now())
+
+  @@index([accountId, date])
+  @@index([ledger])
+  @@index([ownerId])
+}
+
+model IncomeEvent {
+  id         String     @id @default(uuid())
+  date       DateTime
+  amount     Decimal    @db.Decimal(18, 6)
+  label      String
+  ledger     LedgerType
+  account    Account    @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId  String
+  ownerId    String
+  createdAt  DateTime   @default(now())
+
+  @@index([accountId, date])
+  @@index([ledger])
+  @@index([ownerId])
+}
+
+model ExpenseEvent {
+  id         String     @id @default(uuid())
+  date       DateTime
+  amount     Decimal    @db.Decimal(18, 6)
+  category   String
+  ledger     LedgerType
+  account    Account    @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId  String
+  ownerId    String
+  createdAt  DateTime   @default(now())
+
+  @@index([accountId, date])
+  @@index([ledger])
+  @@index([ownerId])
+}
+
+model AccountTransfer {
+  id            String     @id @default(uuid())
+  fromAccount   Account    @relation("fromAccount", fields: [fromAccountId], references: [id], onDelete: Cascade)
+  fromAccountId String
+  toAccount     Account    @relation("toAccount", fields: [toAccountId], references: [id], onDelete: Cascade)
+  toAccountId   String
+  amount        Decimal    @db.Decimal(18, 6)
+  date          DateTime
+  ledger        LedgerType
+  ownerId       String
+  createdAt     DateTime   @default(now())
+
+  @@index([fromAccountId, toAccountId, date])
+  @@index([ledger])
+  @@index([ownerId])
+}
+
+// Optional future-proofing for recurring projections; can be materialized via jobs
+model RecurringRule {
+  id           String    @id @default(uuid())
+  account      Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId    String
+  type         String    // income | expense
+  amount       Decimal   @db.Decimal(18, 6)
+  startDate    DateTime
+  endDate      DateTime?
+  interval     String    // cron-like or RRULE string
+  label        String?
+  category     String?
+  ledger       LedgerType
+  ownerId      String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([accountId])
+  @@index([ownerId])
+}
+

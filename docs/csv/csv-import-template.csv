@@ -1,0 +1,5 @@
+date,amount,type,account,category,label,ledger
+2025-01-01,3500.00,income,Checking,Salary,ACME paycheck,ACTUAL
+2025-01-02,-1200.00,expense,Checking,Rent,January rent,ACTUAL
+2025-01-05,-75.50,expense,Checking,Groceries,Whole Foods,ACTUAL
+

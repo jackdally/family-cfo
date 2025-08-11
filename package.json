@@ -1,0 +1,22 @@
+{
+  "name": "family-cfo",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run -w family-cfo-web dev",
+    "build:web": "npm run -w family-cfo-web build",
+    "start:web": "npm run -w family-cfo-web start",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev --name init --skip-seed",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down -v"
+  },
+  "devDependencies": {
+    "prisma": "5.16.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.16.1"
+  }
+}
