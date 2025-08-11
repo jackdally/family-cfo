@@ -9,6 +9,7 @@ export default function HomePage() {
       <div className="mt-8 space-x-4">
         <a className="rounded bg-emerald-600 px-3 py-2 text-sm font-medium text-white" href="/scenarios">Scenarios</a>
         <a className="rounded bg-emerald-600 px-3 py-2 text-sm font-medium text-white" href="/import">CSV Import</a>
+        <a className="rounded bg-emerald-600 px-3 py-2 text-sm font-medium text-white" href="/accounts">Accounts</a>
       </div>
     </main>
   )

@@ -1,0 +1,19 @@
+version: 3
+sources:
+  - name: default
+    kind: postgres
+    configuration:
+      connection_info:
+        database_url:
+          from_env: HASURA_GRAPHQL_DATABASE_URL
+        isolation_level: read-committed
+        pool_settings: {}
+    tables:
+      - table: {schema: public, name: Scenario}
+      - table: {schema: public, name: Account}
+      - table: {schema: public, name: AccountBalance}
+      - table: {schema: public, name: IncomeEvent}
+      - table: {schema: public, name: ExpenseEvent}
+      - table: {schema: public, name: AccountTransfer}
+      - table: {schema: public, name: RecurringRule}
+
