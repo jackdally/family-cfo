@@ -1,3 +1,8 @@
+---
+slug: /
+title: Project Overview: Family CFO (by Steward)
+---
+
 # Project Overview: Family CFO (by Steward)
 
 ## 🎯 Mission & Vision
