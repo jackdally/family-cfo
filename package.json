@@ -10,6 +10,7 @@
     "start:web": "npm run -w family-cfo-web start",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev --name init --skip-seed",
+    "db:reset": "prisma migrate reset --force --skip-seed",
     "hasura:apply": "node scripts/hasura-apply.mjs",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down -v"

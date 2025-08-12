@@ -17,6 +17,10 @@ const config: Config = {
           sidebarPath: require.resolve('./sidebars.ts'),
           path: '../',
           routeBasePath: '/',
+          exclude: [
+            '**/site/node_modules/**',
+            '**/site/.docusaurus/**',
+          ],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

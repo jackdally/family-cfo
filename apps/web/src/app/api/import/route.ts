@@ -38,6 +38,17 @@ export async function POST(req: NextRequest) {
   const ownerId = 'owner-dev'
   const scenario = await getOrCreateDefaultScenario(ownerId)
 
+  // Validate unsupported types early
+  const unsupported = records.filter(r => r.type === 'transfer')
+  if (unsupported.length > 0) {
+    return NextResponse.json({
+      ok: false,
+      error: 'transfer rows are not supported yet',
+      hint: 'Omit transfers or represent as income/expense pairs for now; see docs/csv/README.md',
+      count: unsupported.length
+    }, { status: 400 })
+  }
+
   // Group by account name
   const byAccount = new Map<string, ImportRow[]>()
   for (const r of records) {
