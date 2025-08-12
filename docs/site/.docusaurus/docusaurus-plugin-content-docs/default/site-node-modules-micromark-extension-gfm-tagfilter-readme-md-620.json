@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/micromark-extension-gfm-tagfilter/readme",
+  "title": "micromark-extension-gfm-tagfilter",
+  "description": "Build",
+  "source": "@site/node_modules/micromark-extension-gfm-tagfilter/readme.md",
+  "sourceDirName": "site/node_modules/micromark-extension-gfm-tagfilter",
+  "slug": "/site/node_modules/micromark-extension-gfm-tagfilter/",
+  "permalink": "/family-cfo/site/node_modules/micromark-extension-gfm-tagfilter/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

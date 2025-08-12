@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/http-cache-semantics/README",
+  "title": "Can I cache this?",
+  "description": "This library tells when responses can be reused from a cache, taking into account HTTP RFC 7234/9111 rules for user agents and shared caches.",
+  "source": "@site/node_modules/http-cache-semantics/README.md",
+  "sourceDirName": "site/node_modules/http-cache-semantics",
+  "slug": "/site/node_modules/http-cache-semantics/",
+  "permalink": "/family-cfo/site/node_modules/http-cache-semantics/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

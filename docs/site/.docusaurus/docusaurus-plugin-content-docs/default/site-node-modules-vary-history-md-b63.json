@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/vary/HISTORY",
+  "title": "1.1.2 / 2017-09-23",
+  "description": "* perf: improve header token parsing speed",
+  "source": "@site/node_modules/vary/HISTORY.md",
+  "sourceDirName": "site/node_modules/vary",
+  "slug": "/site/node_modules/vary/HISTORY",
+  "permalink": "/family-cfo/site/node_modules/vary/HISTORY",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

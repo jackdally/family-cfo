@@ -20,4 +20,11 @@ jobs:
         run: npm run build:web
       - name: Type check web
         run: npx -w apps/web tsc --noEmit
+      - name: Lint web
+        run: npm run -w family-cfo-web lint
+      - name: Build docs (smoke)
+        run: |
+          cd docs/site
+          npm ci --ignore-scripts
+          npm run build
 

@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/micromark/readme",
+  "title": "micromark",
+  "description": "Build",
+  "source": "@site/node_modules/micromark/readme.md",
+  "sourceDirName": "site/node_modules/micromark",
+  "slug": "/site/node_modules/micromark/",
+  "permalink": "/family-cfo/site/node_modules/micromark/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

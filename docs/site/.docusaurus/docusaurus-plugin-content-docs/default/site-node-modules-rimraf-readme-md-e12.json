@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/rimraf/README",
+  "title": "README",
+  "description": "Build Status Dependency Status devDependency Status",
+  "source": "@site/node_modules/rimraf/README.md",
+  "sourceDirName": "site/node_modules/rimraf",
+  "slug": "/site/node_modules/rimraf/",
+  "permalink": "/family-cfo/site/node_modules/rimraf/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

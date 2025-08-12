@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@jest/schemas/README",
+  "title": "@jest/schemas",
+  "description": "Experimental and currently incomplete module for JSON schemas for Jest's configuration.",
+  "source": "@site/node_modules/@jest/schemas/README.md",
+  "sourceDirName": "site/node_modules/@jest/schemas",
+  "slug": "/site/node_modules/@jest/schemas/",
+  "permalink": "/family-cfo/site/node_modules/@jest/schemas/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

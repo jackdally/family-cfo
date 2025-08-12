@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/fast-deep-equal/README",
+  "title": "fast-deep-equal",
+  "description": "The fastest deep equal with ES6 Map, Set and Typed arrays support.",
+  "source": "@site/node_modules/fast-deep-equal/README.md",
+  "sourceDirName": "site/node_modules/fast-deep-equal",
+  "slug": "/site/node_modules/fast-deep-equal/",
+  "permalink": "/family-cfo/site/node_modules/fast-deep-equal/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

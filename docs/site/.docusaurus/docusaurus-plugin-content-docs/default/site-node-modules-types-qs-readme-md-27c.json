@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@types/qs/README",
+  "title": "Installation",
+  "description": "npm install --save @types/qs",
+  "source": "@site/node_modules/@types/qs/README.md",
+  "sourceDirName": "site/node_modules/@types/qs",
+  "slug": "/site/node_modules/@types/qs/",
+  "permalink": "/family-cfo/site/node_modules/@types/qs/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

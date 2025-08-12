@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@babel/runtime-corejs3/README",
+  "title": "@babel/runtime-corejs3",
+  "description": "babel's modular runtime helpers with core-js@3 polyfilling",
+  "source": "@site/node_modules/@babel/runtime-corejs3/README.md",
+  "sourceDirName": "site/node_modules/@babel/runtime-corejs3",
+  "slug": "/site/node_modules/@babel/runtime-corejs3/",
+  "permalink": "/family-cfo/site/node_modules/@babel/runtime-corejs3/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@babel/plugin-transform-unicode-sets-regex/README",
+  "title": "@babel/plugin-transform-unicode-sets-regex",
+  "description": "Compile regular expressions' unicodeSets (v) flag.",
+  "source": "@site/node_modules/@babel/plugin-transform-unicode-sets-regex/README.md",
+  "sourceDirName": "site/node_modules/@babel/plugin-transform-unicode-sets-regex",
+  "slug": "/site/node_modules/@babel/plugin-transform-unicode-sets-regex/",
+  "permalink": "/family-cfo/site/node_modules/@babel/plugin-transform-unicode-sets-regex/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/postcss-replace-overflow-wrap/README",
+  "title": "PostCSS Replace Overflow Wrap [![CSS Standard Status][css-img]][css] [![Build Status][ci-img]][ci]",
+  "description": "[PostCSS] plugin to replace overflow-wrap with word-wrap. May optionally retain both declarations.",
+  "source": "@site/node_modules/postcss-replace-overflow-wrap/README.md",
+  "sourceDirName": "site/node_modules/postcss-replace-overflow-wrap",
+  "slug": "/site/node_modules/postcss-replace-overflow-wrap/",
+  "permalink": "/family-cfo/site/node_modules/postcss-replace-overflow-wrap/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

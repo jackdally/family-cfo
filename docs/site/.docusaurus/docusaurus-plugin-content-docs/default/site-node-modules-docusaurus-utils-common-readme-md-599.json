@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@docusaurus/utils-common/README",
+  "title": "@docusaurus/utils",
+  "description": "Common (Node/Browser) utility functions for Docusaurus packages.",
+  "source": "@site/node_modules/@docusaurus/utils-common/README.md",
+  "sourceDirName": "site/node_modules/@docusaurus/utils-common",
+  "slug": "/site/node_modules/@docusaurus/utils-common/",
+  "permalink": "/family-cfo/site/node_modules/@docusaurus/utils-common/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

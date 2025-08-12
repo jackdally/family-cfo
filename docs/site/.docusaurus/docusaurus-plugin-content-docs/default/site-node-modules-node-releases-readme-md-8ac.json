@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/node-releases/README",
+  "title": "Node.js releases data",
+  "description": "All data is located in data directory.",
+  "source": "@site/node_modules/node-releases/README.md",
+  "sourceDirName": "site/node_modules/node-releases",
+  "slug": "/site/node_modules/node-releases/",
+  "permalink": "/family-cfo/site/node_modules/node-releases/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

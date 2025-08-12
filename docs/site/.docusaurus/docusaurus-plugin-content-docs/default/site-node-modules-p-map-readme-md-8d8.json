@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/p-map/readme",
+  "title": "p-map [![Build Status](https://travis-ci.org/sindresorhus/p-map.svg?branch=master)](https://travis-ci.org/sindresorhus/p-map)",
+  "description": "Map over promises concurrently",
+  "source": "@site/node_modules/p-map/readme.md",
+  "sourceDirName": "site/node_modules/p-map",
+  "slug": "/site/node_modules/p-map/",
+  "permalink": "/family-cfo/site/node_modules/p-map/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

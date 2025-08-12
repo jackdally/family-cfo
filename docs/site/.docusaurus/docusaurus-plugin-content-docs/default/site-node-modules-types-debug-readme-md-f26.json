@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@types/debug/README",
+  "title": "Installation",
+  "description": "npm install --save @types/debug",
+  "source": "@site/node_modules/@types/debug/README.md",
+  "sourceDirName": "site/node_modules/@types/debug",
+  "slug": "/site/node_modules/@types/debug/",
+  "permalink": "/family-cfo/site/node_modules/@types/debug/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

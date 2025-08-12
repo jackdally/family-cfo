@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/postcss-focus-within/node_modules/postcss-selector-parser/README",
+  "title": "postcss-selector-parser [![test](https://github.com/postcss/postcss-selector-parser/actions/workflows/test.yml/badge.svg)](https://github.com/postcss/postcss-selector-parser/actions/workflows/test.yml)",
+  "description": "Selector parser with built in methods for working with selector strings.",
+  "source": "@site/node_modules/postcss-focus-within/node_modules/postcss-selector-parser/README.md",
+  "sourceDirName": "site/node_modules/postcss-focus-within/node_modules/postcss-selector-parser",
+  "slug": "/site/node_modules/postcss-focus-within/node_modules/postcss-selector-parser/",
+  "permalink": "/family-cfo/site/node_modules/postcss-focus-within/node_modules/postcss-selector-parser/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

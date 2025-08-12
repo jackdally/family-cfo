@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/path-is-absolute/readme",
+  "title": "path-is-absolute [![Build Status](https://travis-ci.org/sindresorhus/path-is-absolute.svg?branch=master)](https://travis-ci.org/sindresorhus/path-is-absolute)",
+  "description": "Node.js 0.12 path.isAbsolute() ponyfill",
+  "source": "@site/node_modules/path-is-absolute/readme.md",
+  "sourceDirName": "site/node_modules/path-is-absolute",
+  "slug": "/site/node_modules/path-is-absolute/",
+  "permalink": "/family-cfo/site/node_modules/path-is-absolute/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

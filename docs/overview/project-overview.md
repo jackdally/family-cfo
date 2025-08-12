@@ -1,3 +1,8 @@
+---
+slug: "/"
+title: "Project Overview: Family CFO (by Steward)"
+---
+
 # Project Overview: Family CFO (by Steward)
 
 ## 🎯 Mission & Vision
@@ -356,7 +361,7 @@ Each phase is considered “done” when:
 ### Bootstrapped Strategy
 - No salaries in Year 1 — part-time build by founders (Jack + wife)
 - No legal entity until revenue exists
-- < $1,000 total infra cost target before launch
+- &lt;$1,000 total infra cost target before launch
 
 ### Monetization Plan
 - $5–10/month subscription for power users
@@ -366,7 +371,7 @@ Each phase is considered “done” when:
 ## 📊 Success Metrics
 
 - Net income positive by Year 2 with 1,250 paid users
-- Break-even possible with $75K revenue and <$115K OpEx
+ - Break-even possible with $75K revenue and &lt;$115K OpEx
 - Gradual scaling with focus on retention and trust
 
 ## 🌱 Long-Term Vision

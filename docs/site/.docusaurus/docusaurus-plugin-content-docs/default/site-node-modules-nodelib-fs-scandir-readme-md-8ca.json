@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@nodelib/fs.scandir/README",
+  "title": "@nodelib/fs.scandir",
+  "description": "List files and directories inside the specified directory.",
+  "source": "@site/node_modules/@nodelib/fs.scandir/README.md",
+  "sourceDirName": "site/node_modules/@nodelib/fs.scandir",
+  "slug": "/site/node_modules/@nodelib/fs.scandir/",
+  "permalink": "/family-cfo/site/node_modules/@nodelib/fs.scandir/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

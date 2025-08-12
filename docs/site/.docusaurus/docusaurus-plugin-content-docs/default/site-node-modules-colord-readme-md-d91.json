@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/colord/README",
+  "title": "README",
+  "description": "Colord is a tiny yet powerful tool for high-performance color manipulations and conversions.",
+  "source": "@site/node_modules/colord/README.md",
+  "sourceDirName": "site/node_modules/colord",
+  "slug": "/site/node_modules/colord/",
+  "permalink": "/family-cfo/site/node_modules/colord/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

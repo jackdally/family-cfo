@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/inflight/README",
+  "title": "inflight",
+  "description": "Add callbacks to requests in flight to avoid async duplication",
+  "source": "@site/node_modules/inflight/README.md",
+  "sourceDirName": "site/node_modules/inflight",
+  "slug": "/site/node_modules/inflight/",
+  "permalink": "/family-cfo/site/node_modules/inflight/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/fs.realpath/README",
+  "title": "fs.realpath",
+  "description": "A backwards-compatible fs.realpath for Node v6 and above",
+  "source": "@site/node_modules/fs.realpath/README.md",
+  "sourceDirName": "site/node_modules/fs.realpath",
+  "slug": "/site/node_modules/fs.realpath/",
+  "permalink": "/family-cfo/site/node_modules/fs.realpath/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

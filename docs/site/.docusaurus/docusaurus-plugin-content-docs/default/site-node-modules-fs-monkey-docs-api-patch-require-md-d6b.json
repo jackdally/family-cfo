@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/fs-monkey/docs/api/patchRequire",
+  "title": "patchRequire(vol[, unixifyPaths[, Module]])",
+  "description": "Patches Node's module module to use a given fs-like object vol for module loading.",
+  "source": "@site/node_modules/fs-monkey/docs/api/patchRequire.md",
+  "sourceDirName": "site/node_modules/fs-monkey/docs/api",
+  "slug": "/site/node_modules/fs-monkey/docs/api/patchRequire",
+  "permalink": "/family-cfo/site/node_modules/fs-monkey/docs/api/patchRequire",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

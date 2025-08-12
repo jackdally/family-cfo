@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/micromark-extension-gfm-task-list-item/readme",
+  "title": "micromark-extension-gfm-task-list-item",
+  "description": "Build",
+  "source": "@site/node_modules/micromark-extension-gfm-task-list-item/readme.md",
+  "sourceDirName": "site/node_modules/micromark-extension-gfm-task-list-item",
+  "slug": "/site/node_modules/micromark-extension-gfm-task-list-item/",
+  "permalink": "/family-cfo/site/node_modules/micromark-extension-gfm-task-list-item/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

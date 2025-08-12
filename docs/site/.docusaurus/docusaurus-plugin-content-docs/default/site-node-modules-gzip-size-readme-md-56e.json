@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/gzip-size/readme",
+  "title": "gzip-size [![Build Status](https://travis-ci.com/sindresorhus/gzip-size.svg?branch=master)](https://travis-ci.com/github/sindresorhus/gzip-size)",
+  "description": "Get the gzipped size of a string or buffer",
+  "source": "@site/node_modules/gzip-size/readme.md",
+  "sourceDirName": "site/node_modules/gzip-size",
+  "slug": "/site/node_modules/gzip-size/",
+  "permalink": "/family-cfo/site/node_modules/gzip-size/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

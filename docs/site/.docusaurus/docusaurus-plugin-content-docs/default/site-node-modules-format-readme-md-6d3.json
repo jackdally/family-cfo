@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/format/Readme",
+  "title": "format",
+  "description": "printf, sprintf, and vsprintf for JavaScript",
+  "source": "@site/node_modules/format/Readme.md",
+  "sourceDirName": "site/node_modules/format",
+  "slug": "/site/node_modules/format/",
+  "permalink": "/family-cfo/site/node_modules/format/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

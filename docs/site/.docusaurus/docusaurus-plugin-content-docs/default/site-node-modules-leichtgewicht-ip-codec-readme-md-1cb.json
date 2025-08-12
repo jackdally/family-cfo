@@ -1,0 +1,14 @@
+{
+  "id": "site/node_modules/@leichtgewicht/ip-codec/Readme",
+  "title": "@leichtgewicht/ip-codec",
+  "description": "Small package to encode or decode IP addresses from buffers to strings.",
+  "source": "@site/node_modules/@leichtgewicht/ip-codec/Readme.md",
+  "sourceDirName": "site/node_modules/@leichtgewicht/ip-codec",
+  "slug": "/site/node_modules/@leichtgewicht/ip-codec/",
+  "permalink": "/family-cfo/site/node_modules/@leichtgewicht/ip-codec/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}
