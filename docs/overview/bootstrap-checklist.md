@@ -24,16 +24,16 @@ This checklist tracks the remaining work to finish the `feature/bootstrap` branc
 - [x] Update `README.md` with env copy/setup steps and quick-start verification
 
 ### Hasura Permissions
-- [ ] Ensure owner-based permissions on tables for role `user` and `public` where appropriate
-- [ ] Document permission model and how to apply metadata
+- [x] Ensure owner-based permissions on tables for role `user` and `public` where appropriate
+- [x] Document permission model and how to apply metadata
 
 ### CSV Import
 - [ ] Handle `transfer` rows (or return clear validation errors with guidance)
-- [ ] Add a sample CSV and column definitions in `docs/csv/`
+- [x] Add a sample CSV and column definitions in `docs/csv/`
 
 ### Web App UX
-- [ ] Add local dev health check (Hasura connectivity) surfaced in the UI
-- [ ] Document `apps/web/.env.local` values in `README.md`
+- [x] Add local dev health check (Hasura connectivity) surfaced in the UI
+- [x] Document `apps/web/.env.local` values in `README.md`
 
 ### CI
 - [x] Add ESLint step for `apps/web`
@@ -46,14 +46,13 @@ This checklist tracks the remaining work to finish the `feature/bootstrap` branc
 - [x] Split navigation: `User Guides` (product docs) vs `Developer Docs` (engineering)
 - [x] Seed `User Guides`: Getting Started, Importing CSV, Scenarios & Accounts
 - [x] Link to docs from the app (header/footer “Docs”)
-- [ ] Optional: Add a Docker container for docs (local dev parity and potential `docker-compose` integration)
-- [ ] Optional: Vercel preview builds for docs on PRs
 
 ### Prisma/DB
 - [x] Add `db:reset` script for local development (drop/create + migrate)
 
 ## Links
 - Project overview: `docs/overview/project-overview.md`
+- Hasura permissions: `docs/overview/permissions.md`
 - Accounts page: `apps/web/src/app/accounts/page.tsx`
 - Scenarios page: `apps/web/src/app/scenarios/page.tsx`
 - CSV Import page: `apps/web/src/app/import/page.tsx`
