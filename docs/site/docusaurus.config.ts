@@ -17,6 +17,8 @@ const config: Config = {
           sidebarPath: require.resolve('./sidebars.ts'),
           path: '../',
           routeBasePath: '/',
+          // Ensure the docs homepage resolves to an existing doc
+          homePageId: 'overview/project-overview',
           exclude: [
             '**/site/node_modules/**',
             '**/site/.docusaurus/**',
