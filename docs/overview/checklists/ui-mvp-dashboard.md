@@ -1,5 +1,5 @@
 ---
-title: Checklist: UI MVP Dashboard
+title: "Checklist: UI MVP Dashboard"
 branch: feature/ui-mvp-dashboard
 issue: https://github.com/jackdally/family-cfo/issues/3
 status: active

@@ -1,5 +1,5 @@
 ---
-title: Checklist: Seed Data
+title: "Checklist: Seed Data"
 branch: chore/seed-data
 issue: https://github.com/jackdally/family-cfo/issues/4
 status: active

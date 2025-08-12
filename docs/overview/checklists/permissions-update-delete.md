@@ -1,5 +1,5 @@
 ---
-title: Checklist: Hasura Permissions (Update/Delete)
+title: "Checklist: Hasura Permissions (Update/Delete)"
 branch: feature/hasura-permissions-update-delete
 issue: https://github.com/jackdally/family-cfo/issues/2
 status: active
