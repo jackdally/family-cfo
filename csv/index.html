@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">README | Family CFO Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://jackdally.github.io/family-cfo/csv/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="README | Family CFO Docs"><meta data-rh="true" name="description" content="CSV Import Template (MVP)"><meta data-rh="true" property="og:description" content="CSV Import Template (MVP)"><link data-rh="true" rel="icon" href="/family-cfo/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://jackdally.github.io/family-cfo/csv/"><link data-rh="true" rel="alternate" href="https://jackdally.github.io/family-cfo/csv/" hreflang="en"><link data-rh="true" rel="alternate" href="https://jackdally.github.io/family-cfo/csv/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"README","item":"https://jackdally.github.io/family-cfo/csv/"}]}</script><link rel="stylesheet" href="/family-cfo/assets/css/styles.7bd9a3c7.css">
-<script src="/family-cfo/assets/js/runtime~main.567ad4b7.js" defer="defer"></script>
+<script src="/family-cfo/assets/js/runtime~main.a062803e.js" defer="defer"></script>
 <script src="/family-cfo/assets/js/main.cd8b62a4.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -17,14 +17,16 @@
 <li>date: YYYY-MM-DD</li>
 <li>amount: signed decimal; expenses negative</li>
 <li>type: income | expense | transfer</li>
-<li>account: account name</li>
+<li>account: account name (for income/expense)</li>
+<li>fromAccount: transfer source account (for transfer)</li>
+<li>toAccount: transfer destination account (for transfer)</li>
 <li>category: free text (expense only)</li>
 <li>label: free text</li>
 <li>ledger: ACTUAL | PROJECTED</li>
 </ul>
 <p>Notes:</p>
 <ul>
-<li>For transfers, include two rows if desired (debit and credit) or leave blank and use a dedicated transfer tool later.</li>
+<li>Transfers: provide <code>fromAccount</code> and <code>toAccount</code> columns. Amount should be positive; importer will create a single AccountTransfer row.</li>
 <li>Future iterations will include a column mapper and Monarch-compatible import.</li>
 </ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/family-cfo/adr/architecture"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">architecture</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#csv-import-template-mvp" class="table-of-contents__link toc-highlight">CSV Import Template (MVP)</a></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
