@@ -88,4 +88,21 @@ export async function insertExpense(
   })
 }
 
+export async function insertTransfer(
+  ownerId: string,
+  fromAccountId: string,
+  toAccountId: string,
+  rows: Array<{ date: string; amount: number; ledger: LedgerType }>
+): Promise<{ insert_AccountTransfer: { affected_rows: number } }> {
+  if (rows.length === 0) return { insert_AccountTransfer: { affected_rows: 0 } }
+  const m = `
+    mutation M($objects: [AccountTransfer_insert_input!]!) {
+      insert_AccountTransfer(objects: $objects) { affected_rows }
+    }
+  `
+  return gql<{ insert_AccountTransfer: { affected_rows: number } }>(m, {
+    objects: rows.map(r => ({ date: r.date, amount: r.amount, ledger: r.ledger, fromAccountId, toAccountId, ownerId })),
+  })
+}
+
 

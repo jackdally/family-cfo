@@ -28,7 +28,7 @@ This checklist tracks the remaining work to finish the `feature/bootstrap` branc
 - [x] Document permission model and how to apply metadata
 
 ### CSV Import
-- [ ] Handle `transfer` rows (or return clear validation errors with guidance)
+- [x] Handle `transfer` rows (or return clear validation errors with guidance)
 - [x] Add a sample CSV and column definitions in `docs/csv/`
 
 ### Web App UX

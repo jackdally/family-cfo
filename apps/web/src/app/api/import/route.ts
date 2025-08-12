@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { parse } from 'csv-parse/sync'
-import { ensureAccountByName, getOrCreateDefaultScenario, insertExpense, insertIncome } from '../../../lib/hasura'
+import { ensureAccountByName, getOrCreateDefaultScenario, insertExpense, insertIncome, insertTransfer } from '../../../lib/hasura'
 
 type ImportRow = {
   date: string
   amount: string
   type: 'income' | 'expense' | 'transfer'
   account: string
+  fromAccount?: string
+  toAccount?: string
   category?: string
   label?: string
   ledger: 'ACTUAL' | 'PROJECTED'
@@ -38,16 +40,8 @@ export async function POST(req: NextRequest) {
   const ownerId = 'owner-dev'
   const scenario = await getOrCreateDefaultScenario(ownerId)
 
-  // Validate unsupported types early
-  const unsupported = records.filter(r => r.type === 'transfer')
-  if (unsupported.length > 0) {
-    return NextResponse.json({
-      ok: false,
-      error: 'transfer rows are not supported yet',
-      hint: 'Omit transfers or represent as income/expense pairs for now; see docs/csv/README.md',
-      count: unsupported.length
-    }, { status: 400 })
-  }
+  // Collect transfers separately (supports either from/to columns or single account+label convention)
+  const transferRows = records.filter(r => r.type === 'transfer')
 
   // Group by account name
   const byAccount = new Map<string, ImportRow[]>()
@@ -59,6 +53,7 @@ export async function POST(req: NextRequest) {
 
   let totalIncome = 0
   let totalExpense = 0
+  let totalTransfer = 0
 
   for (const [accountName, rows] of byAccount) {
     const account = await ensureAccountByName(ownerId, scenario.id, accountName, 'checking')
@@ -79,7 +74,24 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  const summary = { total: records.length, income: totalIncome, expense: totalExpense, transfer: records.filter(r => r.type === 'transfer').length }
+  // Process transfers: group by (from,to)
+  const transferMap = new Map<string, { fromAccountId: string; toAccountId: string; rows: Array<{ date: string; amount: number; ledger: 'ACTUAL' | 'PROJECTED' }> }>()
+  for (const r of transferRows) {
+    const fromName = (r.fromAccount || r.account || '').trim()
+    const toName = (r.toAccount || '').trim()
+    if (!fromName || !toName) continue
+    const from = await ensureAccountByName(ownerId, scenario.id, fromName, 'checking')
+    const to = await ensureAccountByName(ownerId, scenario.id, toName, 'checking')
+    const key = `${from.id}::${to.id}`
+    if (!transferMap.has(key)) transferMap.set(key, { fromAccountId: from.id, toAccountId: to.id, rows: [] })
+    transferMap.get(key)!.rows.push({ date: r.date, amount: Math.abs(Number(r.amount)), ledger: r.ledger })
+  }
+  for (const [, grp] of transferMap) {
+    const res = await insertTransfer(ownerId, grp.fromAccountId, grp.toAccountId, grp.rows)
+    totalTransfer += res.insert_AccountTransfer.affected_rows
+  }
+
+  const summary = { total: records.length, income: totalIncome, expense: totalExpense, transfer: totalTransfer }
   return NextResponse.json({ ok: true, scenarioId: scenario.id, summary })
 }
 
