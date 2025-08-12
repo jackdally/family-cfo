@@ -1,3 +1,10 @@
+---
+title: Checklist: Hasura Permissions (Update/Delete)
+branch: feature/hasura-permissions-update-delete
+issue: https://github.com/jackdally/family-cfo/issues/2
+status: active
+---
+
 # Checklist: Hasura Permissions (Update/Delete)
 
 - [ ] Add update permissions for core tables scoped to `ownerId = X-Hasura-User-Id`
