@@ -1,6 +1,6 @@
 ---
-slug: /
-title: Project Overview: Family CFO (by Steward)
+slug: "/"
+title: "Project Overview: Family CFO (by Steward)"
 ---
 
 # Project Overview: Family CFO (by Steward)
